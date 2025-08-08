@@ -56,7 +56,7 @@ export default function ScrollingLogoMarquee() {
               <img src="/LOGO_ASSESTS/IAOI_LOGO.png" alt="IAOI Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/SPECTRUM_LOGO.png" alt="Spectrum Logo" className="image" />
+              <img src="/LOGO_ASSESTS/SPECTRUM_LOGO (1).png" alt="Spectrum Logo" className="image" />
             </li>
             <li>
               <img src="/LOGO_ASSESTS/MM_KITCHEN_LOGO.png" alt="MM Kitchen Logo" className="image" />
@@ -78,7 +78,7 @@ export default function ScrollingLogoMarquee() {
               <img src="/LOGO_ASSESTS/IAOI_LOGO.png" alt="IAOI Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/SPECTRUM_LOGO.png" alt="Spectrum Logo" className="image" />
+              <img src="/LOGO_ASSESTS/SPECTRUM_LOGO (1).png" alt="Spectrum Logo" className="image" />
             </li>
             <li>
               <img src="/LOGO_ASSESTS/MM_KITCHEN_LOGO.png" alt="MM Kitchen Logo" className="image" />
