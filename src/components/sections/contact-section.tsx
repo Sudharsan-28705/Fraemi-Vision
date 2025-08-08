@@ -57,7 +57,7 @@ export default function ContactSection() {
             <CardHeader className="text-center">
                 <CardTitle className="font-headline text-3xl md:text-4xl font-bold">Get in Touch</CardTitle>
                 <CardDescription className="mt-3 text-lg text-muted-foreground">
-                    Have a project in mind? We'd love to hear from you.
+                    Have a project in mind? We'd love to hear from you. 
                 </CardDescription>
             </CardHeader>
             <CardContent>
