@@ -4,9 +4,9 @@ import { Badge } from "@/components/ui/badge";
 
 const projects = [
   {
-    title: "Project Alpha",
+    title: "IAOI",
     description: "A dynamic web application for a leading tech startup.",
-    image: "https://placehold.co/600x400.png",
+    image: "/LOGO_ASSESTS/IAOI_LOGO.png",
     tags: ["Web App", "UI/UX"],
     hint: "technology abstract",
   },
@@ -49,11 +49,12 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="space-y-12">
+    <>
+    <section id="projects" className="space-y-12 px-7 py-16 bg-background/50">
       <div className="text-center">
-        <h2 className="font-headline text-3xl md:text-4xl font-bold">Our Work</h2>
+        <h2 className="font-headline text-3xl md:text-4xl font-bold">Our Services</h2>
         <p className="mt-3 max-w-2xl mx-auto text-lg text-muted-foreground">
-          A selection of projects that showcase our passion for digital craftsmanship.
+          The standard for excellence in strategic execution and professional service.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -69,7 +70,7 @@ export default function ProjectsSection() {
                 data-ai-hint={project.hint}
               />
             </CardContent>
-            <CardFooter className="p-6 flex flex-col items-start">
+            <CardFooter className="p-6 flex flex-col items-start ">
               <h3 className="font-headline text-xl font-semibold mb-2">{project.title}</h3>
               <p className="text-muted-foreground mb-4 text-left flex-grow">{project.description}</p>
               <div className="flex flex-wrap gap-2">
@@ -79,8 +80,18 @@ export default function ProjectsSection() {
               </div>
             </CardFooter>
           </Card>
+          
         ))}
       </div>
+      <div className="text-center mt-12">
+        <a
+          href="#"
+          className="inline-flex items-center px-6 py-3 text-white rounded-md hover:text-primary/100 transition-colors duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+        >
+          View All Projects
+        </a>
+      </div>
     </section>
+    </>
   );
 }
