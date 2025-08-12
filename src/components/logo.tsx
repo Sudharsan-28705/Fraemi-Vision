@@ -2,8 +2,10 @@ import { cn } from "@/lib/utils";
 import type { SVGProps } from "react";
 
 const Logo = (props: SVGProps<SVGSVGElement>) => (
+  <>
   <svg
-    xmlns="file:///C:/Users/pbmai/Downloads/IMG_0534.svg"
+    xmlns="public\Fraemi_logo\FR_LOGO.png"
+    href=""
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -19,5 +21,6 @@ const Logo = (props: SVGProps<SVGSVGElement>) => (
     <path d="M12 12m-4 0a4 4 0 1 0 8 0 4 4 0 1 0-8 0" />
     <path d="M3 12h4m10 0h4" />
   </svg>
+  </>
 );
 export default Logo;

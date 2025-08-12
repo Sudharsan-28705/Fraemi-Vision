@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/header";
 import HeroSection from "@/components/sections/hero-section";
-import AboutSection from "@/components/sections/about-section";
+// import AboutSection from "@/components/sections/about-section";
 import ProjectsSection from "@/components/sections/projects-section";
-import ContactSection from "@/components/sections/contact-section";
+// import ContactSection from "@/components/sections/contact-section";
 import { Separator } from "@/components/ui/separator";
 import { MotionConfig } from "framer-motion";
 import ScrollingLogoMarquee from "@/components/sections/scroll";
@@ -33,7 +33,7 @@ export default function Home() {
         <main className="flex-grow">
           <HeroSection isScrolled={isScrolled} />
           <ScrollingLogoMarquee/>
-          <ProjectsSection/>
+          {/* <ProjectsSection/> */}
           {/* <ContactSection/> */}
         </main>
         <footer className="bg-background border-t border-border/50">

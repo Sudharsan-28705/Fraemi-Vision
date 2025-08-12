@@ -1,22 +1,45 @@
+"use client";
 import Link from "next/link";
 import { Menu } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
+
+
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 const navLinks = [
-  { href: "#about", label: "About" },
+  { href: "/about" , label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];
 
+// Main Header Component
 export default function Header({ isScrolled }: { isScrolled: boolean }) {
+  const title = "Fraemi Vision";
+
+  // Animation variants for the title container
+  const sentenceVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.1,
+      },
+    },
+  };
+  // Animation variants for each letter of the title
+  const letterVariant = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <motion.header
       initial={{ opacity: 0 }}
@@ -30,27 +53,59 @@ export default function Header({ isScrolled }: { isScrolled: boolean }) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-3">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: isScrolled ? 1 : 0, scale: isScrolled ? 1 : 0.9 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <Link href="/" aria-label="Back to homepage">
-                <Logo className="h-8 w-8 text-primary" />
-              </Link>
-            </motion.div>
+            {/* AnimatePresence handles the enter/exit animations */}
+            <AnimatePresence>
+              {isScrolled && (
+                <>
+                  {/* The Logo animation */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                  >
+                    <Link href="/" aria-label="Back to homepage">
+                      <Logo className="h-8 w-8 text-primary" />
+                    </Link>
+                  </motion.div>
+
+                  {/* The letter-by-letter "Fraemi Vision" animation */}
+                  <motion.h1
+                    className="font-headline font-bold text-foreground text-xl"
+                    variants={sentenceVariant}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                  >
+                    {title.split("").map((char, index) => (
+                      <motion.span
+                        key={char + "-" + index}
+                        variants={letterVariant}
+                        className="inline-block"
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </motion.h1>
+                </>
+              )}
+            </AnimatePresence>
           </div>
+
+          {/* --- Desktop Navigation --- */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-sm font-medium text-foreground/80 transition-colors hover:text-accent"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
+
+          {/* --- Mobile Navigation --- */}
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
@@ -61,13 +116,13 @@ export default function Header({ isScrolled }: { isScrolled: boolean }) {
               <SheetContent side="right">
                 <div className="flex flex-col space-y-6 pt-10">
                   {navLinks.map((link) => (
-                    <a
+                    <Link
                       key={link.href}
                       href={link.href}
                       className="text-lg font-medium text-foreground transition-colors hover:text-accent"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </SheetContent>
