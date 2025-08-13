@@ -33,7 +33,7 @@ export default function Home() {
         <main className="flex-grow">
           <HeroSection isScrolled={isScrolled} />
           <ScrollingLogoMarquee/>
-          {/* <ProjectsSection/> */}
+          <ProjectsSection/>
           {/* <ContactSection/> */}
         </main>
         <footer className="bg-background border-t border-border/50">

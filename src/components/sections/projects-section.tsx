@@ -1,97 +1,139 @@
-import Image from "next/image";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import React, { useEffect } from "react";
 
-const projects = [
+const images = [
   {
-    title: "IAOI",
-    description: "A dynamic web application for a leading tech startup.",
-    image: "/LOGO_ASSESTS/IAOI_LOGO.png",
-    tags: ["Web App", "UI/UX"],
-    hint: "technology abstract",
+    src: "/SERVICE_ASSESTS/EventCoverage.jpeg",
+    alt: "Mountain Landscape",
+    title: "Mountain Majesty",
+    description:
+      "Where earth touches sky, and clouds embrace the peaks. Discover the raw power and serene beauty of these ancient giants.",
+    linkText: "Explore",
   },
   {
-    title: "Project Beta",
-    description: "An immersive e-commerce experience for a fashion brand.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["E-commerce", "Branding"],
-    hint: "fashion design",
+    src: "/SERVICE_ASSESTS/SocialMedia.jpeg",
+    alt: "Forest",
+    title: "Mystical Forest",
+    description:
+      "Step into a world where time stands still, and every leaf whispers secrets of the ancient woodland.",
+    linkText: "Discover",
   },
   {
-    title: "Project Gamma",
-    description: "A mobile-first platform for a financial services company.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["Mobile App", "Fintech"],
-    hint: "finance chart",
-  },
-   {
-    title: "Project Delta",
-    description: "A comprehensive data visualization dashboard.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["Dashboard", "Data Viz"],
-    hint: "data dashboard",
+    src: "/SERVICE_ASSESTS/Commercial&Advertise.jpeg",
+    alt: "Ocean",
+    title: "Ocean Dreams",
+    description:
+      "Infinite horizons where waves write poetry on sand and sunsets paint the sky in liquid gold.",
+    linkText: "Dive In",
   },
   {
-    title: "Project Epsilon",
-    description: "A corporate website redesign with a focus on accessibility.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["Website", "Accessibility"],
-    hint: "corporate building",
+    src: "image (2).png",
+    alt: "Desert",
+    title: "Desert Silence",
+    description:
+      "Where every grain of sand holds the wisdom of ages, and the silence speaks louder than words.",
+    linkText: "Journey",
   },
   {
-    title: "Project Zeta",
-    description: "A social networking app connecting creatives worldwide.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["Social", "Mobile App"],
-    hint: "social connection",
+    src: "/SERVICE_ASSESTS/Podcast.jpeg",
+    alt: "Aurora",
+    title: "Northern Lights",
+    description:
+      "Dancing colors across the polar sky, where the universe paints with light and magic becomes reality.",
+    linkText: "Witness",
+  },
+  {
+    src: "image.png",
+    alt: "Waterfall",
+    title: "Waterfall Symphony",
+    description:
+      "Where water falls like liquid music, creating nature's most powerful and graceful performance.",
+    linkText: "Listen",
   },
 ];
 
 export default function ProjectsSection() {
   return (
-    <>
-    <section id="projects" className="space-y-12 px-7 py-16 bg-background/50">
-      <div className="text-center">
-        <h2 className="font-headline text-3xl md:text-4xl font-bold">Our Services</h2>
-        <p className="mt-3 max-w-2xl mx-auto text-lg text-muted-foreground">
-          The standard for excellence in strategic execution and professional service.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <Card key={project.title} className="overflow-hidden bg-background/50 border-border/50 hover:shadow-primary/20 hover:shadow-2xl transition-all duration-300 group transform hover:-translate-y-2">
-            <CardContent className="p-0">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={600}
-                height={400}
-                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                data-ai-hint={project.hint}
-              />
-            </CardContent>
-            <CardFooter className="p-6 flex flex-col items-start ">
-              <h3 className="font-headline text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-muted-foreground mb-4 text-left flex-grow">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="bg-primary/10 text-accent">{tag}</Badge>
-                ))}
+    <section>
+      <div className="min-h-screen px-5 py-20">
+        {/* Page Title */}
+        <div className="text-center text-white mb-12 relative overflow-hidden">
+          <h1
+            className="text-5xl font-light mb-2 opacity-0 translate-y-8 animate-[dropIn_0.8s_ease_forwards]"
+            style={{
+              animation: "dropIn 0.8s ease forwards",
+            }}
+          >
+            Our Services
+          </h1>
+          <div className="inline-block mt-2 h-[1.3em] text-lg">
+            <p
+              className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-transparent w-0"
+              style={{
+                animation:
+                  "typing 2s steps(40, end) 1.8s forwards, blinkCaret .7s step-end infinite 1.8s",
+              }}
+            >
+              Move your cursor over the images to see their stories
+            </p>
+          </div>
+        </div>
+
+        {/* Gallery */}
+        <div className="grid gap-10 px-10 mx-auto grid-cols-[repeat(auto-fit,minmax(350px,1fr))]">
+          {images.map((img, idx) => (
+            <div
+              key={idx}
+              className="image-card h-[400px] w-[800px]relative rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(192,192,192,0.5)]"
+            >
+              <div className="relative w-full h-full overflow-hidden">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="fade-image w-full h-full object-cover transition duration-400 ease-in-out"
+                />
+                <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-10 text-white opacity-0 transition-opacity duration-400 bg-gradient-to-br from-black/30 to-black/10 hover:opacity-100">
+                  <h2 className="text-2xl mb-3 font-light drop-shadow-lg translate-y-5 transition-transform duration-400">
+                    {img.title}
+                  </h2>
+                  <p className="text-base opacity-90 drop-shadow-md translate-y-5 transition-transform duration-400 delay-100">
+                    {img.description}
+                  </p>
+                  <a
+                    href="#"
+                    className="mt-5 px-6 py-2 bg-white/20 text-white rounded-full border border-white/30 transition duration-300 backdrop-blur-md text-sm tracking-wider uppercase hover:bg-white/30 hover:-translate-y-0.5 hover:shadow-lg"
+                  >
+                    {img.linkText}
+                  </a>
+                </div>
               </div>
-            </CardFooter>
-          </Card>
-          
-        ))}
-      </div>
-      <div className="text-center mt-12">
-        <a
-          href="#"
-          className="inline-flex items-center px-6 py-3 text-white rounded-md hover:text-primary/100 transition-colors duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-        >
-          View All Projects
-        </a>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href="#"
+            className="inline-flex items-center px-6 py-3 text-white rounded-md hover:text-primary/100 transition-colors duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          >
+            View All Projects
+          </a>
+        </div>
+
+        {/* Custom animations */}
+        <style>{`
+        @keyframes dropIn {
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes typing {
+          to { width: 100%; }
+        }
+        @keyframes blinkCaret {
+          50% { border-color: #fff; }
+        }
+      `}</style>
       </div>
     </section>
-    </>
+
   );
-}
+};
+
