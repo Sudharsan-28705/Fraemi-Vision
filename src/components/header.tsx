@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { Menu } from 'lucide-react';
 import { cn } from "@/lib/utils";
-import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
 
 
@@ -12,6 +11,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "./logo";
 
 
 const navLinks = [
@@ -66,7 +66,7 @@ export default function Header({ isScrolled }: { isScrolled: boolean }) {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                   >
                     <Link href="/" aria-label="Back to homepage">
-                      <Logo className="h-8 w-8 text-primary" />
+                      <Logo/>
                     </Link>
                   </motion.div>
 
