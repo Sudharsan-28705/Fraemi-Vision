@@ -122,6 +122,8 @@ export default function ScrollingLogoMarquee() {
           overflow: hidden;
           padding: 10px 0;
           box-sizing: border-box;
+          // background-color: #f4f4f9;
+          margin-top: 30px;
         }
 
         .marquee-track {
@@ -160,8 +162,8 @@ export default function ScrollingLogoMarquee() {
 
         /* Images styling */
         .image {
-          height: 50px; /* example fixed height, adjust as needed */
-          width: auto;
+          height: 100px;
+          width: 250px;
           object-fit: contain;
         }
 
@@ -176,6 +178,7 @@ export default function ScrollingLogoMarquee() {
           transform: translate(-50%, -50%);
           z-index: 9999;
           transition: transform 0.15s ease;
+          
         }
 
         .rec-circle {

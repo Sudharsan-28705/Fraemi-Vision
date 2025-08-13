@@ -48,7 +48,7 @@ export default function AboutPage() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
                 <section id="about" className="space-y-12">
                 <div className="text-center">
-                    <h1 className="font-headline text-4xl md:text-5xl font-bold">About Fraemi-Vision</h1>
+                    <h1 className="font-headline text-4xl md:text-5xl font-bold">About Fraemi Vision</h1>
                     <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
                     We are a team of passionate creators, thinkers, and builders dedicated to excellence.
                     </p>

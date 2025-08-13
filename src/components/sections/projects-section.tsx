@@ -54,7 +54,7 @@ const images = [
 export default function ProjectsSection() {
   return (
     <section>
-      <div className="min-h-screen px-5 py-20">
+      <div className="min-h-screen px-5 py-10">
         {/* Page Title */}
         <div className="text-center text-white mb-12 relative overflow-hidden">
           <h1

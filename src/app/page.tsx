@@ -9,6 +9,7 @@ import ProjectsSection from "@/components/sections/projects-section";
 import { Separator } from "@/components/ui/separator";
 import { MotionConfig } from "framer-motion";
 import ScrollingLogoMarquee from "@/components/sections/scroll";
+import CountingNumberAnimation from "@/components/sections/company";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,6 +33,7 @@ export default function Home() {
         <Header isScrolled={isScrolled} />
         <main className="flex-grow">
           <HeroSection isScrolled={isScrolled} />
+          <CountingNumberAnimation/>
           <ScrollingLogoMarquee/>
           <ProjectsSection/>
           {/* <ContactSection/> */}
