@@ -8,8 +8,8 @@ const Logo = () => {
       <Image
         src="/FR_LOGO/FR_LOGO.png" // The correct path to your logo
         alt="Fraemi Vision Logo"
-        width={100} // Set the width of the image
-        height={50} // Set the height of the image
+        width={40} // Set the width of the image
+        height={40} // Set the height of the image
       />
     </a>
   );

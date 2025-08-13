@@ -42,7 +42,7 @@ const images = [
     linkText: "Witness",
   },
   {
-    src: "image.png",
+    src: "/SERVICE_ASSESTS/PostProduction.jpeg",
     alt: "Waterfall",
     title: "Waterfall Symphony",
     description:
@@ -70,10 +70,10 @@ export default function ProjectsSection() {
               className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-transparent w-0"
               style={{
                 animation:
-                  "typing 2s steps(40, end) 1.8s forwards, blinkCaret .7s step-end infinite 1.8s",
+                  "typing 2s steps(40, end) 1.8s forwards",
               }}
             >
-              Move your cursor over the images to see their stories
+              A selection of projects that showcase our passion for digital craftsmanship.
             </p>
           </div>
         </div>
