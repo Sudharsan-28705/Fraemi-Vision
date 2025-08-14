@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Header from "@/components/header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Target, Eye } from "lucide-react";
+import Cursor from "@/cursor";
 
 
 const values = [
@@ -41,7 +42,10 @@ export default function AboutPage() {
   }, []);
 
   return (
+    <>
+    <Cursor/>
     <section id="About" className="scroll-mt-20">
+      
     <div className="flex flex-col min-h-screen bg-background">
         <Header isScrolled={isScrolled} />
         <main className="bg-background text-foreground pt-20">
@@ -76,5 +80,6 @@ export default function AboutPage() {
         </footer>
     </div>
     </section>
+    </>
   );
 }

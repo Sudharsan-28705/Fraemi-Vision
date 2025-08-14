@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator";
 import { MotionConfig } from "framer-motion";
 import ScrollingLogoMarquee from "@/components/sections/scroll";
 import CountingNumberAnimation from "@/components/sections/company";
+import Cursor from "@/cursor";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,8 +31,9 @@ export default function Home() {
   return (
     <MotionConfig transition={{ duration: 2, ease: [0.4, 0, 0.2, 1] }}>
       <div className="flex flex-col min-h-screen bg-background">
+        <Cursor />
         <Header isScrolled={isScrolled} />
-        <main className="flex-grow">
+        <main className="flex-grow">   
           <HeroSection isScrolled={isScrolled} />
           <CountingNumberAnimation/>
           <ScrollingLogoMarquee/>

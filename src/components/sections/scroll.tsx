@@ -1,54 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
 
 export default function ScrollingLogoMarquee() {
-  // Refs for the cursor and its child circle
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const recCircleRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const cursor = cursorRef.current;
-    const recCircle = recCircleRef.current;
-
-    if (!cursor || !recCircle) return;
-
-    // Move cursor with mousemove
-    const onMouseMove = (e: MouseEvent) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    };
-
-    // Scale cursor and add class on mousedown
-    const onMouseDown = () => {
-      cursor.style.transform = "translate(-50%, -50%) scale(0.7)";
-      recCircle.classList.add("clicked");
-    };
-
-    // Revert scale and remove class on mouseup
-    const onMouseUp = () => {
-      cursor.style.transform = "translate(-50%, -50%) scale(1)";
-      recCircle.classList.remove("clicked");
-    };
-
-    // Attach event listeners
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mousedown", onMouseDown);
-    document.addEventListener("mouseup", onMouseUp);
-
-    // Cleanup event listeners on unmount
-    return () => {
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mousedown", onMouseDown);
-      document.removeEventListener("mouseup", onMouseUp);
-    };
-  }, []);
-
-  return (
+    return (
     <>
-      <div id="custom-cursor" ref={cursorRef} className="custom-cursor">
-        <div className="rec-circle" ref={recCircleRef}></div>
-      </div>
       <div className="marquee">
         <div className="marquee-track">
           <ul className="marquee-content">
@@ -106,7 +61,7 @@ export default function ScrollingLogoMarquee() {
           padding: 0;
           font-family: Arial, sans-serif;
           background-color: #070707;
-          cursor: none; /* Hide default cursor */
+          
         }
 
         div {
