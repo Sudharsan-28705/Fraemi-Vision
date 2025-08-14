@@ -10,6 +10,7 @@ const Logo = () => {
         alt="Fraemi Vision Logo"
         width={40} // Set the width of the image
         height={40} // Set the height of the image
+          
       />
     </a>
   );

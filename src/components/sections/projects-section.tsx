@@ -3,50 +3,50 @@ import React, { useEffect } from "react";
 const images = [
   {
     src: "/SERVICE_ASSESTS/EventCoverage.jpeg",
-    alt: "Mountain Landscape",
-    title: "Mountain Majesty",
+    alt: "Event Coverage",
+    title: "Event Coverage",
     description:
-      "Where earth touches sky, and clouds embrace the peaks. Discover the raw power and serene beauty of these ancient giants.",
+      "Capturing the energy and defining moments of your event with cinematic video and dynamic photography.",
     linkText: "Explore",
   },
   {
     src: "/SERVICE_ASSESTS/SocialMedia.jpeg",
-    alt: "Forest",
-    title: "Mystical Forest",
+    alt: "Social Media",
+    title: "Social Media",
     description:
-      "Step into a world where time stands still, and every leaf whispers secrets of the ancient woodland.",
+      "Crafting scroll-stopping videos that boost engagement and elevate your brand's presence online.",
     linkText: "Discover",
   },
   {
     src: "/SERVICE_ASSESTS/Commercial&Advertise.jpeg",
-    alt: "Ocean",
-    title: "Ocean Dreams",
+    alt: "Commercial & Advertising",
+    title: "Commercial & Advertising",
     description:
-      "Infinite horizons where waves write poetry on sand and sunsets paint the sky in liquid gold.",
+      "Crafting compelling visual campaigns that elevate your brand and drive commercial results.",
     linkText: "Dive In",
   },
   {
-    src: "image (2).png",
-    alt: "Desert",
-    title: "Desert Silence",
+    src: "/SERVICE_ASSESTS/Drone.jpeg",
+    alt: "Drone Photography",
+    title: "Drone Photography",
     description:
-      "Where every grain of sand holds the wisdom of ages, and the silence speaks louder than words.",
+      "Elevating your vision with breathtaking aerial photography and dynamic cinematic footage.",
     linkText: "Journey",
   },
   {
     src: "/SERVICE_ASSESTS/Podcast.jpeg",
-    alt: "Aurora",
-    title: "Northern Lights",
+    alt: "Podcast",
+    title: "Podcast",
     description:
-      "Dancing colors across the polar sky, where the universe paints with light and magic becomes reality.",
+      "Producing broadcast-quality, multi-camera video that transforms your podcast into an engaging visual show.",
     linkText: "Witness",
   },
   {
     src: "/SERVICE_ASSESTS/PostProduction.jpeg",
-    alt: "Waterfall",
-    title: "Waterfall Symphony",
+    alt: "Post Production",
+    title: "Post Production",
     description:
-      "Where water falls like liquid music, creating nature's most powerful and graceful performance.",
+      "Shaping your raw footage into a compelling story with meticulous editing, cinematic color, and immersive sound design.",
     linkText: "Listen",
   },
 ];
