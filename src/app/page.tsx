@@ -11,6 +11,8 @@ import { MotionConfig } from "framer-motion";
 import ScrollingLogoMarquee from "@/components/sections/scroll";
 import CountingNumberAnimation from "@/components/sections/company";
 import Cursor from "@/cursor";
+import Foot from "@/components/sections/footer";
+import Feedback from "@/components/sections/feedback";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +40,10 @@ export default function Home() {
           <CountingNumberAnimation/>
           <ScrollingLogoMarquee/>
           <ProjectsSection/>
+          <Feedback/>
           {/* <ContactSection/> */}
+
+          <Foot/>
         </main>
         <footer className="bg-background border-t border-border/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-muted-foreground text-sm">

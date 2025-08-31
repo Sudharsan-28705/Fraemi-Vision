@@ -110,10 +110,10 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-5">
           <a
             href="#"
-            className="inline-flex items-center px-6 py-3 text-white rounded-md hover:text-primary/100 transition-colors duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            className="inline-flex items-center px-6 py-3 text-gray-400 rounded-md hover:text-primary/50 transition-colors duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
           >
             View All Projects
           </a>
