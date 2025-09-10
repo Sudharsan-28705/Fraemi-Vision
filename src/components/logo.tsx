@@ -4,15 +4,14 @@ import Image from "next/image";
 
 const Logo = () => {
   return (
-    <a href="#">
-      <Image
-        src="/FR_LOGO/FR_LOGO.png" // The correct path to your logo
-        alt="Fraemi Vision Logo"
-        width={40} // Set the width of the image
-        height={40} // Set the height of the image
-          
-      />
-    </a>
+    // The component now only returns the Image
+    <Image
+      src="/FR_LOGO/FR_LOGO.png"
+      alt="Fraemi Vision Logo"
+      width={40} // Add width
+      height={40} // Add height
+      className="cursor-pointer" // Add a pointer cursor to indicate it's clickable
+    />
   );
 };
 
