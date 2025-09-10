@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Logo = () => {
   return (
-    <a href="/">
+    <a href="#">
       <Image
         src="/FR_LOGO/FR_LOGO.png" // The correct path to your logo
         alt="Fraemi Vision Logo"

@@ -13,6 +13,7 @@ import CountingNumberAnimation from "@/components/sections/company";
 import Cursor from "@/cursor";
 import Foot from "@/components/sections/footer";
 import Feedback from "@/components/sections/feedback";
+import Cool from "@/components/sections/cool";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +43,7 @@ export default function Home() {
           <ProjectsSection/>
           <Feedback/>
           {/* <ContactSection/> */}
-
+          {/* <Cool/> */}
           <Foot/>
         </main>
         <footer className="bg-background border-t border-border/50">
