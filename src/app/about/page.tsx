@@ -7,6 +7,7 @@ import { Users, Target, Eye } from "lucide-react";
 import Cursor from "@/cursor";
 import { Typewriter } from 'react-simple-typewriter';
 import Image from 'next/image';
+import Common_footer from "@/components/sections/common_footer";
 
 const values = [
     {
@@ -116,11 +117,7 @@ export default function AboutPage() {
               </section>
             </div>
           </main>
-          <footer className="bg-background border-t border-border/50">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Fraemi-Vision. All rights reserved.
-            </div>
-          </footer>
+          <Common_footer/>
         </div>
       </section>
     </>
