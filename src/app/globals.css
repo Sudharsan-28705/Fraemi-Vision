@@ -5,6 +5,7 @@
 *{
   scrollbar-width: none;
   /* cursor: none; */
+  scroll-behavior: smooth;
 }
 
 *::-webkit-scrollbar {

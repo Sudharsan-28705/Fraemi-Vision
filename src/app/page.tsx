@@ -2,19 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Header from "@/components/header";
-import HeroSection from "@/components/sections/hero-section";
-// import AboutSection from "@/components/sections/about-section";
-import ProjectsSection from "@/components/sections/projects-section";
-// import ContactSection from "@/components/sections/contact-section";
-import { Separator } from "@/components/ui/separator";
 import { MotionConfig } from "framer-motion";
-import ScrollingLogoMarquee from "@/components/sections/scroll";
-import CountingNumberAnimation from "@/components/sections/company";
 import Cursor from "@/cursor";
-import Foot from "@/components/sections/footer";
-import Feedback from "@/components/sections/feedback";
-import Cool from "@/components/sections/cool";
 import Common_footer from "@/components/sections/common_footer";
+import App from "./app";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,14 +28,7 @@ export default function Home() {
       <div className="flex flex-col min-h-screen bg-background">
         <Cursor />
         <Header isScrolled={isScrolled} />
-        <main className="flex-grow">   
-          <HeroSection isScrolled={isScrolled} />
-          <CountingNumberAnimation/>
-          <ScrollingLogoMarquee/>
-          <ProjectsSection/>
-          <Feedback/>
-          <Foot/>
-        </main>
+        <App />
         <Common_footer/>
       </div>
     </MotionConfig>
