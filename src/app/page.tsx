@@ -43,6 +43,7 @@ export default function Home() {
           <ScrollingLogoMarquee/>
           <ProjectsSection/>
           <Feedback/>
+          <Foot/>
         </main>
         <Common_footer/>
       </div>

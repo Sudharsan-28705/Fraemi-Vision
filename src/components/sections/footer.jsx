@@ -109,10 +109,10 @@ export default function Foot() {
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-                        <div className="flex items-center ">
+                        {/* <div className="flex items-center ">
                             <LocationIcon />
                             <span className="hover:text-white transition-colors">Old No 9A New No 4, Kamarajar St, <br /> Ayodhya Colony, Velachery, Chennai - 600042</span>
-                        </div>
+                        </div> */}
                         <div className="flex items-center">
                             <MailIcon />
                             <span className="hover:text-white transition-colors">fraemivision@gmail.com</span>
