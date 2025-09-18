@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const images = [
   {
@@ -52,11 +54,43 @@ const images = [
 ];
 
 export default function ProjectsSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const typingRef = useRef(null);
+
+  useEffect(() => {
+      AOS.init({
+        duration: 800,       // Animation duration
+        easing: 'ease-in-out', // Animation easing
+        once: false,           // Whether animation should happen only once
+      });
+    }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    if (typingRef.current) {
+      observer.observe(typingRef.current);
+    }
+
+    return () => {
+      if (typingRef.current) {
+        observer.unobserve(typingRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section>
       <div className="min-h-screen px-5 py-10">
         {/* Page Title */}
-        <div className="text-center text-white mb-12 relative overflow-hidden">
+        <div className="text-center text-white mb-12 relative overflow-hidden" data-aos="zoom-up">
           <h1
             className="text-5xl font-light mb-2 opacity-0 translate-y-8 animate-[dropIn_0.8s_ease_forwards]"
             style={{
@@ -66,15 +100,17 @@ export default function ProjectsSection() {
             Our Services
           </h1>
           <div className="inline-block mt-2 h-[1.3em] text-lg">
-            <p
-              className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-transparent w-0"
-              style={{
-                animation:
-                  "typing 2s steps(40, end) 1.8s forwards",
-              }}
-            >
-              A selection of projects that showcase our passion for digital craftsmanship.
-            </p>
+          <p
+            ref={typingRef}
+            className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-transparent w-0"
+            style={{
+              animation: isVisible
+                ? "typing 2s steps(40, end) 1.8s forwards"
+                : "none",
+            }}
+          >
+            A selection of projects that showcase our passion for digital craftsmanship.
+          </p>
           </div>
         </div>
 
@@ -110,16 +146,6 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        <div className="text-center mt-5">
-          <a
-            href="#"
-            className="inline-flex items-center px-6 py-3 text-gray-400 rounded-md hover:text-primary/50 transition-colors duration-200 text-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-          >
-            View All Projects
-          </a>
-        </div>
-
-        {/* Custom animations */}
         <style>{`
         @keyframes dropIn {
           to { opacity: 1; transform: translateY(0); }

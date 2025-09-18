@@ -9,7 +9,7 @@ export default function HeroSection({ isScrolled }: { isScrolled: boolean }) {
         id="hero"
         className="relative flex flex-col items-center justify-center min-h-screen text-center px-4"
       >
-        <span className="mt-[100px] border-2 border-red-700 h-[300px] w-[300px]"><Logo /></span>
+        <span className="mt-[100px] border-2 border-red-700 h-[300px] w-[300px] items-center justify-evenly flex "><Logo /></span>
         <motion.h1
           className="font-headline font-bold text-foreground"
           style={{ fontSize: "8rem" }}
