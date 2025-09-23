@@ -1,137 +1,10 @@
-// "use client";
-
-// import { useState, useEffect } from "react";
-// import Header from "@/components/header";
-// import { Card, CardContent } from "@/components/ui/card";
-// import { Users, Target, Eye } from "lucide-react";
-// import Cursor from "@/cursor";
-// import { Typewriter } from 'react-simple-typewriter';
-// import Image from 'next/image';
-// import Common_footer from "@/components/sections/common_footer";
-
-// const values = [
-//     {
-//         icon: <Users className="h-8 w-8 text-accent"/>,
-//         title: "Our History",
-//         description: "Founded on creative innovation, Fraemi-Vision has been turning visionary ideas into digital reality since its inception."
-//     },
-//     {
-//         icon: <Target className="h-8 w-8 text-accent"/>,
-//         title: "Our Mission",
-//         description: "To design and develop seamless, engaging, and beautiful digital products that exceed client expectations and user needs."
-//     },
-//     {
-//         icon: <Eye className="h-8 w-8 text-accent"/>,
-//         title: "Our Values",
-//         description: "We believe in collaboration, transparency, and a passion for pushing the boundaries of technology and design."
-//     }
-// ];
-
-// export default function AboutPage() {
-//   const [isScrolled, setIsScrolled] = useState(false);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setIsScrolled(window.scrollY > 50);
-//     };
-
-//     window.addEventListener("scroll", handleScroll);
-//     handleScroll();
-
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-
-//   return (
-//     <>
-//       <Cursor/>
-//       <section id="About" className="scroll-mt-20">
-//         <div className="flex flex-col min-h-screen bg-background">
-//           <Header isScrolled={isScrolled} />
-//           <main className="bg-background text-foreground pt-20">
-//             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-//               <section id="about" className="space-y-12">
-
-//                 {/* Page Header */}
-//                 <div className="text-center">
-//                   <h1 className="font-headline text-4xl md:text-5xl font-bold">About Fraemi Vision</h1>
-//                   <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-//                     We are a team of passionate creators, thinkers, and builders dedicated to excellence.
-//                   </p>
-//                 </div>
-
-//                 {/* Values Section */}
-//                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12">
-//                   {values.map((value) => (
-//                     <Card key={value.title} className="bg-background/50 border-border/50 hover:border-primary transition-colors duration-300 transform hover:-translate-y-1">
-//                       <CardContent className="p-6 text-center">
-//                         <div className="flex justify-center mb-4">{value.icon}</div>
-//                         <h3 className="font-headline text-xl font-semibold mb-2">{value.title}</h3>
-//                         <p className="text-muted-foreground">{value.description}</p>
-//                       </CardContent>
-//                     </Card>
-//                   ))}
-//                 </div>
-
-//                 {/* --- Founder Section --- */}
-//                 <div className="pt-20">
-//                   <div className="pt-8 md:p-12 rounded-lg shadow-lg">
-//                     <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
-
-//                       {/* Founder Image and Name */}
-//                       <div className="flex-shrink-0 text-center">
-//                         <Image 
-//                           src="/SUJITH_REMIGIUS/sujith-remigius (1).png" 
-//                           alt="Founder Sujith Remigius" 
-//                           width={240}
-//                           height={240}
-//                           className="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover shadow-2xl border-4 border-background"
-//                         />
-//                         <h3 className="mt-5 text-xl text-accent tracking-wider font-semibold">
-//                           SUJITH REMIGIUS
-//                         </h3>
-//                       </div>
-
-//                       {/* Founder Title and Description */}
-//                       <div className="flex-1 text-center">
-//                         <h2 className="text-4xl text-accent tracking-wider mb-4 font-semibold text-center ">
-//                           FOUNDER
-//                         </h2>
-//                         <p className="text-base text-muted-foreground leading-relaxed text-justify">
-//                           <Typewriter
-//                             words={[
-//                               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolores cumque optio eaque, laudantium quas, expedita illo corrupti quaerat maxime quos nulla eum in veniam omnis repudiandae cum quisquam sed obcaecati nemo inventore? Natus, eligendi est atque placeat ratione qui voluptatibus earum sunt veniam recusandae delectus nulla architecto iusto deserunt minima vitae."
-//                             ]}
-//                             loop={1}
-//                             cursor
-//                             cursorStyle="|"
-//                             typeSpeed={30}
-//                             delaySpeed={1000}
-//                           />
-//                         </p>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </div>
-//                 {/* --- End of Founder Section --- */}
-
-//               </section>
-//             </div>
-//           </main>
-//           <Common_footer/>
-//         </div>
-//       </section>
-//     </>
-//   );
-// }
-
 "use client"
 
 import Header from '@/components/header';
 import Common_footer from '@/components/sections/common_footer';
 import Cursor from '@/cursor';
-import Image from 'next/image';
 import React, { useState, useEffect, useRef, FC, ReactNode } from 'react';
-import { Typewriter } from 'react-simple-typewriter';
+
 
 // --- Reusable Animation Component ---
 const RevealOnScroll: FC<{ children: ReactNode; className?: string }> = ({ children, className = '' }) => {
@@ -174,18 +47,12 @@ const timelineData = [
   { year: "Today", title: "Crafting the Future", description: "We continue to push creative boundaries, innovate with new technologies, and tell unforgettable stories. The best is yet to come." },
 ];
 
-const teamData = [
-  { name: "Jane Doe", title: "CEO & Founder", quote: "The best way to predict the future is to create it.", link: "LINKEDIN", category: "leadership", img: "https://placehold.co/400x600/8b5cf6/f0e9ff?text=Jane+Doe" },
-  { name: "John Smith", title: "CTO & Co-Founder", quote: "Turns coffee into code. Believes in elegant solutions to complex problems.", link: "GITHUB", category: "leadership", img: "https://placehold.co/400x600/3b82f6/dbeafe?text=John+Smith" },
-  { name: "Emily White", title: "Lead Engineer", quote: "Building robust systems and mentoring the next generation of developers.", link: "LINKEDIN", category: "engineering", img: "https://placehold.co/400x600/ec4899/fce7f3?text=Emily+White" },
-  { name: "Mike Brown", title: "Creative Director", quote: "Design is not just what it looks like, it's how it works.", link: "PORTFOLIO", category: "creative", img: "https://placehold.co/400x600/f43f5e/fee2e2?text=Mike+Brown" },
-];
 
 const missionData = [
   {
     id: 1,
     gradient: "from-pink-400 to-purple-600",
-    src: "/ABOUT_US/creative_vision.jpeg",
+    src: "/ABOUT_ASSESTS/creative_vision.jpeg",
     alt: "Creative Vision",
     title: "Creative Vision",
     description:
@@ -195,7 +62,7 @@ const missionData = [
     id: 2,
     title: "The Art of the Story",
     gradient: "from-blue-400 to-teal-500",
-    src: "/ABOUT_US/creative_vision.jpeg",
+    src: "/ABOUT_ASSESTS/ART_OF_STORY.webp",
     description:
       "We believe every client has a story worth telling. Our purpose is to capture its essence through stunning photography, dynamic videography, and seamless post-production, turning fleeting moments into lasting legacies.",
   },
@@ -235,7 +102,7 @@ const Mission = () => (
       {missionData.map((mission, index) => (
         <div key={mission.id} className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* Logic to alternate image position */}
-          <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
+          <div className={`md:w-1/2 height={200} width={400} ${index % 2 !== 0 ? 'md:order-2' : ''} ` }>
             <img src={mission.src} alt={mission.title} className="rounded-lg shadow-xl w-full h-auto" />
           </div>
           <div className="md:w-1/2 text-center md:text-left">

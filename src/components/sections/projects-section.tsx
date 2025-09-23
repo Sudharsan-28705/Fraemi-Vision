@@ -9,7 +9,6 @@ const images = [
     title: "Event Coverage",
     description:
       "Capturing the energy and defining moments of your event with cinematic video and dynamic photography.",
-    linkText: "Explore",
   },
   {
     src: "/SERVICE_ASSESTS/SocialMedia.jpeg",
@@ -17,7 +16,6 @@ const images = [
     title: "Social Media",
     description:
       "Crafting scroll-stopping videos that boost engagement and elevate your brand's presence online.",
-    linkText: "Discover",
   },
   {
     src: "/SERVICE_ASSESTS/Commercial&Advertise.jpeg",
@@ -25,7 +23,6 @@ const images = [
     title: "Commercial & Advertising",
     description:
       "Crafting compelling visual campaigns that elevate your brand and drive commercial results.",
-    linkText: "Dive In",
   },
   {
     src: "/SERVICE_ASSESTS/Drone.jpeg",
@@ -33,7 +30,6 @@ const images = [
     title: "Drone Photography",
     description:
       "Elevating your vision with breathtaking aerial photography and dynamic cinematic footage.",
-    linkText: "Journey",
   },
   {
     src: "/SERVICE_ASSESTS/Podcast.jpeg",
@@ -41,7 +37,6 @@ const images = [
     title: "Podcast",
     description:
       "Producing broadcast-quality, multi-camera video that transforms your podcast into an engaging visual show.",
-    linkText: "Witness",
   },
   {
     src: "/SERVICE_ASSESTS/PostProduction.jpeg",
@@ -49,7 +44,6 @@ const images = [
     title: "Post Production",
     description:
       "Shaping your raw footage into a compelling story with meticulous editing, cinematic color, and immersive sound design.",
-    linkText: "Listen",
   },
 ];
 
@@ -134,12 +128,7 @@ export default function ProjectsSection() {
                   <p className="text-base opacity-90 drop-shadow-md translate-y-5 transition-transform duration-400 delay-100">
                     {img.description}
                   </p>
-                  <a
-                    href="#"
-                    className="mt-5 px-6 py-2 bg-white/20 text-white rounded-full border border-white/30 transition duration-300 backdrop-blur-md text-sm tracking-wider uppercase hover:bg-white/30 hover:-translate-y-0.5 hover:shadow-lg"
-                  >
-                    {img.linkText}
-                  </a>
+                  
                 </div>
               </div>
             </div>

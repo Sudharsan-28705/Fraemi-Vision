@@ -20,12 +20,6 @@ const InstagramIcon = () => (
     </svg>
 );
 
-const LocationIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-    </svg>
-);
-
 const MailIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
         <path d="M2.003 5.884L10 11.884l7.997-6M2 18h16V5l-8 5-8-5v13z" />
@@ -59,25 +53,6 @@ export default function Foot() {
                         </p>
                     </div>
 
-                    {/* Right side: Newsletter Form */}
-                    <div className="space-y-5 w-full md:max-w-sm">
-                        <h3 className="text-xs font-bold text-white tracking-widest uppercase">Contact Us</h3>
-                        <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
-                            <div className="relative flex items-center">
-                                <FiMail className="absolute left-4 text-gray-500" size={18} />
-                                <input
-                                    type="email"
-                                    placeholder="Enter Your Query"
-                                    className="w-full bg-transparent border border-gray-700 text-white text-sm pl-12 pr-10 py-3 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300"
-                                    aria-label="Email Address"
-                                />
-                                <button type="submit" aria-label="Submit" className="absolute right-4 text-gray-400 hover:text-white transition-colors duration-300">
-                                    <FiArrowRight size={20} />
-                                </button>
-                            </div>
-                            
-                        </form>
-                    </div>
                 </div>
 
                 {/* Middle Section: Navigation */}
@@ -85,13 +60,9 @@ export default function Foot() {
                     <nav className="flex flex-wrap gap-x-6 gap-y-2 text-gray-300">
                         <a href="/about" className="hover:text-white transition-colors">About Us</a>
                         <span className="text-gray-600">|</span>
-                        <a href="#" className="hover:text-white transition-colors">Podcaster</a>
+                        <a href="/portfolio" className="hover:text-white transition-colors">Portfolio</a>
                         <span className="text-gray-600">|</span>
-                        <a href="#" className="hover:text-white transition-colors">Programs</a>
-                        <span className="text-gray-600">|</span>
-                        <a href="#" className="hover:text-white transition-colors">Music Chart</a>
-                        <span className="text-gray-600">|</span>
-                        <a href="#" className="hover:text-white transition-colors">FAQ</a>
+                        <a href="/contact" className="hover:text-white transition-colors">Contact</a>
                     </nav>
                 </div>
 
@@ -102,17 +73,13 @@ export default function Foot() {
                 <div className="flex flex-col md:flex-row justify-between items-center text-sm pt-8">
                     <div className="flex items-center space-x-4 mb-4 md:mb-0">
                         <div className="flex space-x-3 text-gray-400">
-                            <a href="#" className="hover:text-white transition-colors"><FacebookIcon /></a>
+                            <a href="https://www.facebook.com/share/19Yz4zcK7g/" className="hover:text-white transition-colors"><FacebookIcon /></a>
                             <a href="#" className="hover:text-white transition-colors"><TwitterIcon /></a>
                             <a href="#" className="hover:text-white transition-colors"><InstagramIcon /></a>
                         </div>
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-                        {/* <div className="flex items-center ">
-                            <LocationIcon />
-                            <span className="hover:text-white transition-colors">Old No 9A New No 4, Kamarajar St, <br /> Ayodhya Colony, Velachery, Chennai - 600042</span>
-                        </div> */}
                         <div className="flex items-center">
                             <MailIcon />
                             <span className="hover:text-white transition-colors">fraemivision@gmail.com</span>
