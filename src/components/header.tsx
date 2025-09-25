@@ -19,6 +19,7 @@ const navLinks = [
   { href: "/about" , label: "About" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "SRT Translation" },
 ];
 
 // Main Header Component
