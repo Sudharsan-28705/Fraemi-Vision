@@ -71,7 +71,7 @@ const missionData = [
     id: 3,
     title: "Capturing Your Narrative",
     gradient: "from-amber-400 to-orange-600",
-    src: "/ABOUT_US/creative_vision.jpeg",
+    src: "/ABOUT_ASSESTS/Narrative.jpg",
     description:
       "From the first shot to the final cut, our passion is to frame your world. We specialize in capturing life's defining moments through expert videography and photography, polishing each memory to perfection with our meticulous editing process.",
   }
@@ -102,7 +102,7 @@ const Mission = () => (
       {missionData.map((mission, index) => (
         <div key={mission.id} className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* Logic to alternate image position */}
-          <div className={`md:w-1/2 height={200} width={400} ${index % 2 !== 0 ? 'md:order-2' : ''} ` }>
+          <div className={`md:w-1/2 height={200} width={400} ${index % 2 !== 0 ? 'md:order-2' : ''} `}>
             <img src={mission.src} alt={mission.title} className="rounded-lg shadow-xl w-full h-auto" />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
@@ -161,7 +161,7 @@ const TimelineItem: FC<{ item: typeof timelineData[0], index: number }> = ({ ite
 
 
 const Team = () => {
-  const RevealOnScroll = ({ children , delay = 0, threshold = 0.25 }) => {
+  const RevealOnScroll = ({ children, delay = 0, threshold = 0.25 }) => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
 
@@ -255,18 +255,10 @@ const JoinUs = () => (
       <RevealOnScroll>
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Become a Part of Our Story</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">Whether you're a potential client, a future team member, or just a fan, we'd love to connect.</p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="bg-secondary p-8 rounded-lg text-center transform transition-transform hover:-translate-y-2 border border-border">
-            <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Want to work with us?</h3>
-            <p className="mb-6 text-muted-foreground">We're always looking for passionate talent. Check out our open positions.</p>
-            <a href="#" className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3 px-8 rounded-full">View Careers</a>
-          </div>
-          <div className="bg-secondary p-8 rounded-lg text-center transform transition-transform hover:-translate-y-2 border border-border">
-            <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Have a project in mind?</h3>
-            <p className="mb-6 text-muted-foreground">Let's talk about how we can build something amazing together.</p>
-            <a href="/contact" className="inline-block bg-foreground text-background hover:bg-foreground/90 font-bold py-3 px-8 rounded-full">Get In Touch</a>
-          </div>
+        <div className="inline-block p-8 rounded-lg text-center transform transition-transform hover:-translate-y-2 border border-border-opacity-50">
+          <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Have a project in mind?</h3>
+          <p className="mb-6 text-muted-foreground">Let's talk about how we can build something amazing together.</p>
+          <a href="/contact" className="inline-block bg-foreground text-background hover:bg-foreground/90 font-bold py-3 px-8 rounded-full">Get In Touch</a>
         </div>
       </RevealOnScroll>
     </div>

@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body, a, button {
+  cursor: none !important;
+}
+
 *{
   scrollbar-width: none;
-  /* cursor: none; */
   scroll-behavior: smooth;
 }
 
@@ -85,5 +88,11 @@ body {
   body {
     @apply bg-background text-foreground;
     scroll-behavior: smooth;
+  }
+}
+
+@media (pointer: coarse) {
+  #custom-cursor {
+    display: none !important;
   }
 }

@@ -32,7 +32,7 @@ const App = () => {
             <CountingNumberAnimation />
             <ScrollingLogoMarquee />
             <ProjectsSection />
-            <Feedback />
+            {/* <Feedback /> */}
             <Foot />
         </main>
     )

@@ -1,80 +1,142 @@
-import React, { useEffect,useRef } from 'react'
+"use client";
+import React, { useState, useEffect, useRef } from 'react';
 
-export default function Cursor() {
-    // Refs for cursor and circle
-  const cursorRef = useRef<HTMLDivElement>(null);
-    const recCircleRef = useRef<HTMLDivElement>(null);
-  
-    useEffect(() => {
-      const cursor = cursorRef.current;
-      const recCircle = recCircleRef.current;
-  
-      if (!cursor || !recCircle) return;
-  
-      // Move cursor with mousemove
-      const onMouseMove = (e: MouseEvent) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-      };
-  
-      // Scale cursor and add class on mousedown
-      const onMouseDown = () => {
-        cursor.style.transform = "translate(-50%, -50%) scale(0.7)";
-        recCircle.classList.add("clicked");
-      };
-  
-      // Revert scale and remove class on mouseup
-      const onMouseUp = () => {
-        cursor.style.transform = "translate(-50%, -50%) scale(1)";
-        recCircle.classList.remove("clicked");
-      };
-  
-      // Attach event listeners
-      document.addEventListener("mousemove", onMouseMove);
-      document.addEventListener("mousedown", onMouseDown);
-      document.addEventListener("mouseup", onMouseUp);
-  
-      // Cleanup event listeners on unmount
-      return () => {
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mousedown", onMouseDown);
-        document.removeEventListener("mouseup", onMouseUp);
-      };
-    }, []);
+// Define the type for the position state for type safety
+type Position = {
+  x: number;
+  y: number;
+};
 
-  return (
-    <>
-    <div id="custom-cursor" ref={cursorRef} className="custom-cursor">
-        <div className="rec-circle" ref={recCircleRef}></div>
-    </div>
+// The number of points in the cursor's trail
+const TRAIL_LENGTH = 15;
 
-    <style jsx>{`.custom-cursor {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 40px;
-          height: 40px;
-          pointer-events: none;
-          transform: translate(-50%, -50%);
-          z-index: 9999;
-          transition: transform 0.15s ease;
-          
-        }
-
-        .rec-circle {
-          width: 100%;
-          height: 100%;
-          border: 2px solid white;
-          border-radius: 6px;
-          transition: background-color 0.3s ease, transform 0.15s ease;
-        }
-
-        /* Click effect on cursor */
-        .rec-circle.clicked {
-          background-color: rgba(255, 255, 255, 0.3);
-          transform: scale(0.85);
-        }`}</style>
-    </>
+/**
+ * A custom cursor component that replaces the default mouse cursor with a
+ * stylish, animated "REC"-style cursor and a smooth trailing effect.
+ */
+const CustomCursor: React.FC = () => {
+    // State to track the cursor's primary position (x, y coordinates)
+    const [position, setPosition] = useState<Position>({ x: -100, y: -100 });
+    // State to store the history of positions for the trail effect
+    const [trail, setTrail] = useState<Position[]>([]);
+    // State to track whether the mouse button is being pressed
+    const [isClicked, setIsClicked] = useState<boolean>(false);
     
-  )
-}
+    // A ref to store the latest cursor position for use in the animation loop
+    const latestPositionRef = useRef<Position>(position);
+
+    useEffect(() => {
+        // Event handler for mouse movement
+        const handleMouseMove = (e: MouseEvent) => {
+            const newPosition = { x: e.clientX, y: e.clientY };
+            setPosition(newPosition);
+            latestPositionRef.current = newPosition; // Update ref for animation loop
+        };
+
+        // Event handler for mouse down (click start)
+        const handleMouseDown = () => {
+            setIsClicked(true);
+        };
+
+        // Event handler for mouse up (click end)
+        const handleMouseUp = () => {
+            setIsClicked(false);
+        };
+
+        // Add event listeners to the document when the component mounts
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mousedown', handleMouseDown);
+        document.addEventListener('mouseup', handleMouseUp);
+
+        let animationFrameId: number;
+
+        // Animation loop to update the trail
+        const animateTrail = () => {
+            setTrail(prevTrail => {
+                const newTrail = [latestPositionRef.current, ...prevTrail];
+                // Limit the trail to a fixed length
+                if (newTrail.length > TRAIL_LENGTH) {
+                    newTrail.pop();
+                }
+                return newTrail;
+            });
+            animationFrameId = requestAnimationFrame(animateTrail);
+        };
+
+        // Start the animation loop
+        animateTrail();
+
+        // Cleanup function to remove event listeners and cancel animation frame
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mousedown', handleMouseDown);
+            document.removeEventListener('mouseup', handleMouseUp);
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, []); // Empty dependency array ensures this effect runs only once on mount
+
+    // Dynamically build class strings for the main cursor element
+    const cursorClasses = [
+        "fixed", "w-[25px]", "h-[25px]",
+        "pointer-events-none",
+        "z-[9999]",
+        "transition-transform", "duration-300",
+        "-translate-x-1/2", "-translate-y-1/2",
+        isClicked ? "scale-75" : "scale-100",
+    ].join(' ');
+
+    // Dynamic classes for the center "REC" circle, now much brighter
+    const recCircleClasses = [
+        "absolute", "top-1/2", "left-1/2",
+        "w-2", "h-2", "rounded-full",
+        "-translate-x-1/2", "-translate-y-1/2",
+        "transition-colors", "duration-200", "ease-in-out",
+        isClicked ? "bg-gray-300" : "bg-white", // Brighter center circle (white)
+    ].join(' ');
+
+    // Base classes for corner brackets, now a lighter gray for better contrast
+    const bracketBaseClasses = "absolute w-[10px] h-[10px] border-[3px] border-gray-300 rounded-[2px] box-border";
+
+    return (
+        // Add an ID to the wrapper to allow hiding it on coarse pointer devices via CSS
+        <div id="custom-cursor">
+            {/* Render the trail dots */}
+            {trail.map((trailPos, index) => {
+                const opacity = Math.max(0, 1 - index / TRAIL_LENGTH);
+                const scale = Math.max(0, 1 - index / TRAIL_LENGTH);
+
+                return (
+                    <div
+                        key={index}
+                        // Use a lighter grey color for the trail for better visibility
+                        className="fixed w-2 h-2 bg-gray-400 rounded-full pointer-events-none z-[9998]"
+                        style={{
+                            left: `${trailPos.x}px`,
+                            top: `${trailPos.y}px`,
+                            opacity: opacity,
+                            transform: `translate(-50%, -50%) scale(${scale})`,
+                            transition: 'transform 0.1s ease-out, opacity 0.1s ease-out',
+                        }}
+                    ></div>
+                );
+            })}
+
+            {/* Render the main cursor head */}
+            <div
+                className={cursorClasses}
+                style={{ left: `${position.x}px`, top: `${position.y}px` }}
+            >
+                {/* Corner brackets */}
+                <span className={`${bracketBaseClasses} top-0 left-0 border-r-0 border-b-0`}></span>
+                <span className={`${bracketBaseClasses} top-0 right-0 border-l-0 border-b-0`}></span>
+                <span className={`${bracketBaseClasses} bottom-0 left-0 border-r-0 border-t-0`}></span>
+                <span className={`${bracketBaseClasses} bottom-0 right-0 border-l-0 border-t-0`}></span>
+                
+                {/* Center recording-style circle */}
+                <div className={recCircleClasses}></div>
+            </div>
+        </div>
+    );
+};
+
+export default CustomCursor;
