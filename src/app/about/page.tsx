@@ -102,7 +102,7 @@ const Mission = () => (
       {missionData.map((mission, index) => (
         <div key={mission.id} className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* Logic to alternate image position */}
-          <div className={`md:w-1/2 height={200} width={400} ${index % 2 !== 0 ? 'md:order-2' : ''} `}>
+          <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
             <img src={mission.src} alt={mission.title} className="rounded-lg shadow-xl w-full h-auto" />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
@@ -160,61 +160,56 @@ const TimelineItem: FC<{ item: typeof timelineData[0], index: number }> = ({ ite
 };
 
 
-const Team = () => {
-  const RevealOnScroll = ({ children, delay = 0, threshold = 0.25 }) => {
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef(null);
+  const Team = () => {
+    const TeamReveal: FC<{ children: ReactNode; delay?: number; threshold?: number }> = ({ children, delay = 0, threshold = 0.25 }) => {
+      const [isVisible, setIsVisible] = useState(false);
+      const ref = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          // Check if the element is intersecting
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            // Stop observing after the animation is triggered
-            observer.unobserve(entry.target);
+      useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+              observer.unobserve(entry.target);
+            }
+          },
+          {
+            threshold,
           }
-        },
-        {
-          threshold, // 25% of the element must be visible
-        }
-      );
+        );
 
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
-
-      return () => {
         if (ref.current) {
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          observer.unobserve(ref.current);
+          observer.observe(ref.current);
         }
-      };
-    }, [ref, threshold]);
 
-    // Base transition classes
-    const transitionClasses = `transition-all duration-1000 ease-out`;
-    // Initial state: invisible and slightly moved down
-    const initialStateClasses = `opacity-0 transform translate-y-5`;
-    // Visible state: fully opaque and in original position
-    const visibleStateClasses = `opacity-100 transform translate-y-0`;
-    return (
-      <div
-        ref={ref}
-        className={`${transitionClasses} ${isVisible ? visibleStateClasses : initialStateClasses}`}
-        style={{ transitionDelay: `${delay}ms` }} // Apply custom delay
-      >
-        {children}
-      </div>
-    );
-  };
+        return () => {
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
+        };
+      }, [threshold]);
+
+      const transitionClasses = `transition-all duration-1000 ease-out`;
+      const initialStateClasses = `opacity-0 transform translate-y-5`;
+      const visibleStateClasses = `opacity-100 transform translate-y-0`;
+
+      return (
+        <div
+          ref={ref}
+          className={`${transitionClasses} ${isVisible ? visibleStateClasses : initialStateClasses}`}
+          style={{ transitionDelay: `${delay}ms` }}
+        >
+          {children}
+        </div>
+      );
+    };
 
   return (
     <section id="founder" className="py-20 md:py-32 font-sans overflow-hidden">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image Column */}
-          <RevealOnScroll>
+          <TeamReveal>
             <div className="w-full max-w-md mx-auto">
               <img
                 src="/SUJITH_REMIGIUS/sujith-remigius (1).png"
@@ -222,25 +217,25 @@ const Team = () => {
                 className="rounded-full shadow-2xl w-full h-auto aspect-square object-cover"
               />
             </div>
-          </RevealOnScroll>
+          </TeamReveal>
 
           {/* Content Column */}
           <div className="text-center md:text-left">
-            <RevealOnScroll delay={100}>
+            <TeamReveal delay={100}>
               <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600 mb-2">Meet Sujith Remigius</h1>
-            </RevealOnScroll>
+            </TeamReveal>
 
-            <RevealOnScroll delay={300}>
+            <TeamReveal delay={300}>
               <p className="text-xl md:text-2xl text-gray-700 font-medium mb-8">Founder & Creative Director, Fraemi Vision</p>
-            </RevealOnScroll>
+            </TeamReveal>
 
-            <RevealOnScroll delay={500}>
+            <TeamReveal delay={500}>
               <p className="text-lg text-gray-600 leading-relaxed">Driven by a vision to fuse artistry with technology, Sujith established Fraemi Vision to create captivating visual experiences. Drawing on extensive experience in photography, filmmaking, and post-production, they guide the creative strategy with a core belief: that every frame has the power to evoke emotion. As the driving force behind the company, they mentor the team to ensure every project is a benchmark of quality, innovation, and authentic storytelling.</p>
-            </RevealOnScroll>
+            </TeamReveal>
 
-            <RevealOnScroll delay={700}>
+            <TeamReveal delay={700}>
               <blockquote className="text-xl italic text-purple-700 border-l-4 border-purple-300 pl-4 mt-10">“Creativity is not just about what we capture, but how we make people feel.” – Sujith Remigius</blockquote>
-            </RevealOnScroll>
+            </TeamReveal>
           </div>
         </div>
       </div>

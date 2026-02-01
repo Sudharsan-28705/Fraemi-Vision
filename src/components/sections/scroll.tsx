@@ -28,6 +28,9 @@ export default function ScrollingLogoMarquee() {
             <li>
               <img src="/LOGO_ASSESTS/KUKU_LOGO.png" alt="Kuku Logo" className="image" />
             </li>
+            <li>
+              <img src="/LOGO_ASSESTS/GOAT_LOGO.png" alt="Kuku Logo" className="image" />
+            </li>
 
             <li>
               <img src="/LOGO_ASSESTS/IAOI_LOGO.png" alt="IAOI Logo" className="image" />
@@ -49,6 +52,9 @@ export default function ScrollingLogoMarquee() {
             </li>
             <li>
               <img src="/LOGO_ASSESTS/KUKU_LOGO.png" alt="Kuku Logo" className="image" />
+            </li>
+            <li>
+              <img src="/LOGO_ASSESTS/GOAT_LOGO.png" alt="Kuku Logo" className="image" />
             </li>
           </ul>
         </div>

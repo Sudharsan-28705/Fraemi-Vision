@@ -95,7 +95,7 @@ const CustomCursor: React.FC = () => {
     ].join(' ');
 
     // Base classes for corner brackets, now a lighter gray for better contrast
-    const bracketBaseClasses = "absolute w-[10px] h-[10px] border-[3px] border-gray-300 rounded-[2px] box-border";
+    const bracketBaseClasses = "absolute w-[10px] h-[10px] border-[3px] border-white rounded-[2px] box-border";
 
     return (
         // Add an ID to the wrapper to allow hiding it on coarse pointer devices via CSS
