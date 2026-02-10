@@ -29,7 +29,19 @@ export default function ScrollingLogoMarquee() {
               <img src="/LOGO_ASSESTS/KUKU_LOGO.png" alt="Kuku Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/GOAT_LOGO.png" alt="Kuku Logo" className="image" />
+              <img src="/LOGO_ASSESTS/GOAT_LOGO.png" alt="GOAT Logo" className="image" />
+            </li>
+            <li>
+              <img src="/LOGO_ASSESTS/VALHALLA_LOGO.png" alt="VALHALLA Logo" className="image" />
+            </li>
+            <li>
+              <img src="/LOGO_ASSESTS/THE_BARBEQUE_LOUNGE_LOGO.png" alt="THE_BARBEQUE_LOUNGE Logo" className="image" />
+            </li>
+            <li>
+              <img src="/LOGO_ASSESTS/MOHAN'S_KITCHEN_LOGO.png" alt="MOHAN'S_KITCHEN_LOGO Logo" className="image" />
+            </li>
+            <li>
+              <img src="/LOGO_ASSESTS/FIND_BHK_LOGO.png" alt="FIND_BHK Logo" className="image" />
             </li>
 
             <li>
@@ -54,7 +66,19 @@ export default function ScrollingLogoMarquee() {
               <img src="/LOGO_ASSESTS/KUKU_LOGO.png" alt="Kuku Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/GOAT_LOGO.png" alt="Kuku Logo" className="image" />
+              <img src="/LOGO_ASSESTS/GOAT_LOGO.png" alt="GOAT Logo" className="image" />
+            </li>
+            <li>
+              <img src="/LOGO_ASSESTS/VALHALLA_LOGO.png" alt="VALHALLA Logo" className="image" />
+            </li>
+            <li>
+              <img src="/LOGO_ASSESTS/THE_BARBEQUE_LOUNGE_LOGO.png" alt="THE_BARBEQUE_LOUNGE Logo" className="image" />
+            </li>
+            <li>
+              <img src="/LOGO_ASSESTS/MOHAN'S_KITCHEN_LOGO.png" alt="MOHAN'S_KITCHEN_LOGO Logo" className="image" />
+            </li>
+            <li>
+              <img src="/LOGO_ASSESTS/FIND_BHK_LOGO.png" alt="FIND_BHK_LOGO Logo" className="image" />
             </li>
           </ul>
         </div>

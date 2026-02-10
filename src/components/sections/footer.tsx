@@ -1,6 +1,6 @@
-import React from 'react';
-import { FiMail, FiArrowRight } from 'react-icons/fi';
-import Logo from "@/components/logo.tsx";
+import React from "react";
+import Logo from "@/components/logo";
+
 
 const FacebookIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">

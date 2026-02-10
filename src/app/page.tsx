@@ -1,36 +1,45 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
 import Header from "@/components/header";
-import { MotionConfig } from "framer-motion";
-import Cursor from "@/cursor";
+import HeroSection from "@/components/sections/hero-section";
+import CountingNumberAnimation from "@/components/sections/company";
+import ProjectsSection from "@/components/sections/projects-section";
+import ScrollingLogoMarquee from "@/components/sections/scroll";
 import Common_footer from "@/components/sections/common_footer";
-import App from "./app";
+import Foot from "@/components/sections/footer";
+import CustomCursor from "@/cursor";
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  return (
-    <MotionConfig transition={{ duration: 2, ease: [0.4, 0, 0.2, 1] }}>
-      <div className="flex flex-col min-h-screen bg-background">
-        <Cursor />
+   const [isScrolled, setIsScrolled] = useState(false);
+  
+      useEffect(() => {
+          const handleScroll = () => {
+              setIsScrolled(window.scrollY > 50);
+          };
+  
+          window.addEventListener("scroll", handleScroll);
+          handleScroll();
+  
+          return () => {
+              window.removeEventListener("scroll", handleScroll);
+          };
+      }, []);
+  
+      return (
+        <>
+        <CustomCursor/>
         <Header isScrolled={isScrolled} />
-        <App />
-        <Common_footer/>
-      </div>
-    </MotionConfig>
-  );
+          <main className="flex-grow">
+              <HeroSection isScrolled={isScrolled} />
+              <CountingNumberAnimation />
+              <ScrollingLogoMarquee />
+              <ProjectsSection />
+              {/* <Feedback /> */}
+              <Foot />
+          </main>
+          
+        </>
+      ) 
 }
