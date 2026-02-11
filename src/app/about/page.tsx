@@ -51,7 +51,7 @@ const timelineData = [
 const missionData = [
   {
     id: 1,
-    gradient: "from-pink-400 to-purple-600",
+    gradient: "bg-gradient-to-l from-gray-800 to-gray-500",
     src: "/ABOUT_ASSESTS/creative_vision.jpeg",
     alt: "Creative Vision",
     title: "Creative Vision",
@@ -61,7 +61,7 @@ const missionData = [
   {
     id: 2,
     title: "The Art of the Story",
-    gradient: "from-blue-400 to-teal-500",
+    gradient: "bg-gradient-to-r from-gray-800 to-gray-500",
     src: "/ABOUT_ASSESTS/ART_OF_STORY.webp",
     description:
       "We believe every client has a story worth telling. Our purpose is to capture its essence through stunning photography, dynamic videography, and seamless post-production, turning fleeting moments into lasting legacies.",
@@ -70,7 +70,7 @@ const missionData = [
   {
     id: 3,
     title: "Capturing Your Narrative",
-    gradient: "from-amber-400 to-orange-600",
+    gradient: "bg-gradient-to-l from-gray-800 to-gray-500",
     src: "/ABOUT_ASSESTS/Narrative.jpg",
     description:
       "From the first shot to the final cut, our passion is to frame your world. We specialize in capturing life's defining moments through expert videography and photography, polishing each memory to perfection with our meticulous editing process.",
@@ -89,7 +89,7 @@ const Header1 = () => (
     <div className="relative z-20 px-4">
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 drop-shadow-lg">Every Frame Tells a Story</h1>
       <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 drop-shadow-md text-muted-foreground ">We are a team of passionate creators, thinkers, and builders dedicated to excellence.</p>
-      <a href="#mission" className="inline-block bg-primary text-primary-foreground font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105">
+      <a href="#mission" className="inline-block bg-gray-600 text-primary-foreground font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105">
         Discover Our Journey
       </a>
     </div>
@@ -100,17 +100,17 @@ const Mission = () => (
   <section id="mission" className="py-20 md:py-32">
     <div className="container mx-auto px-6 space-y-24">
       {missionData.map((mission, index) => (
-        <div key={mission.id} className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div key={mission.id} className="flex flex-col md:flex-row items-center gap-8 md:gap-12 ">
           {/* Logic to alternate image position */}
           <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
             <img src={mission.src} alt={mission.title} className="rounded-lg shadow-xl w-full h-auto" />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
             <RevealOnScroll>
-              <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r ${mission.gradient}`}>
+              <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text ${mission.gradient} `}>
                 {mission.title}
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
                 {mission.description}
               </p>
             </RevealOnScroll>
@@ -148,7 +148,7 @@ const TimelineItem: FC<{ item: typeof timelineData[0], index: number }> = ({ ite
   return (
     <RevealOnScroll className={`mb-12 flex items-center w-full ${sideClasses}`}>
       <div className="order-1 w-5/12"></div>
-      <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+      <div className="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-12 h-12 rounded-full">
         <h3 className="mx-auto font-semibold text-lg text-primary-foreground">{index + 1}</h3>
       </div>
       <div className="order-1 bg-secondary rounded-lg shadow-xl w-5/12 px-6 py-4">
@@ -212,7 +212,7 @@ const TimelineItem: FC<{ item: typeof timelineData[0], index: number }> = ({ ite
           <TeamReveal>
             <div className="w-full max-w-md mx-auto">
               <img
-                src="/SUJITH_REMIGIUS/sujith-remigius (1).png"
+                src="/SUJITH_REMIGIUS/SUJITH_REMIGIUS.jpg"
                 alt="Founder of the Company"
                 className="rounded-full shadow-2xl w-full h-auto aspect-square object-cover"
               />
@@ -222,19 +222,19 @@ const TimelineItem: FC<{ item: typeof timelineData[0], index: number }> = ({ ite
           {/* Content Column */}
           <div className="text-center md:text-left">
             <TeamReveal delay={100}>
-              <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600 mb-2">Meet Sujith Remigius</h1>
+              <h1 className="text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 mb-2">Meet Sujith Remigius</h1>
             </TeamReveal>
-
+<br />
             <TeamReveal delay={300}>
               <p className="text-xl md:text-2xl text-gray-700 font-medium mb-8">Founder & Creative Director, Fraemi Vision</p>
             </TeamReveal>
 
             <TeamReveal delay={500}>
-              <p className="text-lg text-gray-600 leading-relaxed">Driven by a vision to fuse artistry with technology, Sujith established Fraemi Vision to create captivating visual experiences. Drawing on extensive experience in photography, filmmaking, and post-production, they guide the creative strategy with a core belief: that every frame has the power to evoke emotion. As the driving force behind the company, they mentor the team to ensure every project is a benchmark of quality, innovation, and authentic storytelling.</p>
+              <p className="text-lg leading-relaxed text-gray-300">Driven by a vision to fuse artistry with technology, Sujith established Fraemi Vision to create captivating visual experiences. Drawing on extensive experience in photography, filmmaking, and post-production, they guide the creative strategy with a core belief: that every frame has the power to evoke emotion. As the driving force behind the company, they mentor the team to ensure every project is a benchmark of quality, innovation, and authentic storytelling.</p>
             </TeamReveal>
 
             <TeamReveal delay={700}>
-              <blockquote className="text-xl italic text-purple-700 border-l-4 border-purple-300 pl-4 mt-10">“Creativity is not just about what we capture, but how we make people feel.” – Sujith Remigius</blockquote>
+              <blockquote className="text-xl italicborder-l-4 pl-4 mt-10 text-transparent bg-clip-text bg-gradient-to-l from-gray-800 to-gray-500">“Creativity is not just about what we capture, but how we make people feel.” – Sujith Remigius</blockquote>
             </TeamReveal>
           </div>
         </div>
@@ -248,10 +248,10 @@ const JoinUs = () => (
   <section id="join-us" className="py-20 md:py-32 bg-background text-foreground">
     <div className="container mx-auto px-6 text-center">
       <RevealOnScroll>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Become a Part of Our Story</h2>
+        <h2 className="text-transparent bg-clip-text bg-gradient-to-l from-gray-800 to-gray-300 text-3xl md:text-4xl font-bold mb-4">Become a Part of Our Story</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">Whether you're a potential client, a future team member, or just a fan, we'd love to connect.</p>
         <div className="inline-block p-8 rounded-lg text-center transform transition-transform hover:-translate-y-2 border border-border-opacity-50">
-          <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Have a project in mind?</h3>
+          <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-gray-300">Have a project in mind?</h3>
           <p className="mb-6 text-muted-foreground">Let's talk about how we can build something amazing together.</p>
           <a href="/contact" className="inline-block bg-foreground text-background hover:bg-foreground/90 font-bold py-3 px-8 rounded-full">Get In Touch</a>
         </div>

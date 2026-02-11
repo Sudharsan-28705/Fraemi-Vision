@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import CustomCursor from '@/cursor';
+import TargetCursor from '@/cursor';
 
 export const metadata: Metadata = {
   title: 'Fraemi Vision',
@@ -23,7 +24,7 @@ export default function RootLayout({
         
       </head>
       <body className="font-body antialiased">
-        <CustomCursor />
+        <TargetCursor />
         {children}
         <Toaster />
       </body>

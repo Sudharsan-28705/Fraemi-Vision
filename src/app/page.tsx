@@ -10,6 +10,7 @@ import ScrollingLogoMarquee from "@/components/sections/scroll";
 import Common_footer from "@/components/sections/common_footer";
 import Foot from "@/components/sections/footer";
 import CustomCursor from "@/cursor";
+import TargetCursor from "@/cursor";
 
 export default function Home() {
    const [isScrolled, setIsScrolled] = useState(false);
@@ -29,7 +30,8 @@ export default function Home() {
   
       return (
         <>
-        <CustomCursor/>
+        {/* <CustomCursor/> */}
+        <TargetCursor/>
         <Header isScrolled={isScrolled} />
           <main className="flex-grow">
               <HeroSection isScrolled={isScrolled} />

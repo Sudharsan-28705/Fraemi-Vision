@@ -1,142 +1,170 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
 
-// Define the type for the position state for type safety
-type Position = {
-  x: number;
-  y: number;
-};
+import {
+    useEffect,
+    useRef,
+    useCallback,
+    useMemo,
+    useState,
+} from "react";
+import { gsap } from "gsap";
 
-// The number of points in the cursor's trail
-const TRAIL_LENGTH = 15;
+interface TargetCursorProps {
+    targetSelector?: string;
+    spinDuration?: number;
+    hideDefaultCursor?: boolean;
+}
 
-/**
- * A custom cursor component that replaces the default mouse cursor with a
- * stylish, animated "REC"-style cursor and a smooth trailing effect.
- */
-const CustomCursor: React.FC = () => {
-    // State to track the cursor's primary position (x, y coordinates)
-    const [position, setPosition] = useState<Position>({ x: -100, y: -100 });
-    // State to store the history of positions for the trail effect
-    const [trail, setTrail] = useState<Position[]>([]);
-    // State to track whether the mouse button is being pressed
-    const [isClicked, setIsClicked] = useState<boolean>(false);
-    
-    // A ref to store the latest cursor position for use in the animation loop
-    const latestPositionRef = useRef<Position>(position);
+const TargetCursor: React.FC<TargetCursorProps> = ({
+    targetSelector = ".cursor-target",
+    spinDuration = 2,
+    hideDefaultCursor = true,
+}) => {
+    const cursorRef = useRef<HTMLDivElement>(null);
+    const cornersRef = useRef<HTMLDivElement[]>([]);
+    const spinTl = useRef<gsap.core.Timeline | null>(null);
+
+    const [mounted, setMounted] = useState(false);
+
+    // Prevent SSR crash
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    const constants = useMemo(
+        () => ({
+            borderWidth: 3,
+            cornerSize: 100,
+        }),
+        []
+    );
+
+    const moveCursor = useCallback((x: number, y: number) => {
+        if (!cursorRef.current) return;
+        gsap.to(cursorRef.current, {
+            x,
+            y,
+            duration: 0.08,
+            ease: "power3.out",
+        });
+    }, []);
 
     useEffect(() => {
-        // Event handler for mouse movement
-        const handleMouseMove = (e: MouseEvent) => {
-            const newPosition = { x: e.clientX, y: e.clientY };
-            setPosition(newPosition);
-            latestPositionRef.current = newPosition; // Update ref for animation loop
-        };
+        if (!mounted || !cursorRef.current) return;
 
-        // Event handler for mouse down (click start)
-        const handleMouseDown = () => {
-            setIsClicked(true);
-        };
+        const cursor = cursorRef.current;
+        const originalCursor = document.body.style.cursor;
 
-        // Event handler for mouse up (click end)
-        const handleMouseUp = () => {
-            setIsClicked(false);
-        };
+        if (hideDefaultCursor) {
+            document.body.style.cursor = "none";
+        }
 
-        // Add event listeners to the document when the component mounts
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mousedown', handleMouseDown);
-        document.addEventListener('mouseup', handleMouseUp);
+        cornersRef.current = Array.from(
+            cursor.querySelectorAll<HTMLDivElement>(".target-cursor-corner")
+        );
 
-        let animationFrameId: number;
+        gsap.set(cursor, {
+            xPercent: -50,
+            yPercent: -50,
+            x: window.innerWidth / 2,
+            y: window.innerHeight / 2,
+        });
 
-        // Animation loop to update the trail
-        const animateTrail = () => {
-            setTrail(prevTrail => {
-                const newTrail = [latestPositionRef.current, ...prevTrail];
-                // Limit the trail to a fixed length
-                if (newTrail.length > TRAIL_LENGTH) {
-                    newTrail.pop();
-                }
-                return newTrail;
+        // Spin
+        spinTl.current = gsap
+            .timeline({ repeat: -1 })
+            .to(cursor, {
+                rotation: "+=360",
+                duration: spinDuration,
+                ease: "none",
             });
-            animationFrameId = requestAnimationFrame(animateTrail);
+
+        const moveHandler = (e: MouseEvent) =>
+            moveCursor(e.clientX, e.clientY);
+
+        window.addEventListener("mousemove", moveHandler);
+
+        const enterHandler = (e: MouseEvent) => {
+            const target = (e.target as Element)?.closest(
+                targetSelector
+            );
+            if (!target) return;
+
+            const rect = target.getBoundingClientRect();
+            const { borderWidth, cornerSize } = constants;
+
+            const positions = [
+                { x: rect.left - borderWidth, y: rect.top - borderWidth },
+                {
+                    x: rect.right + borderWidth - cornerSize,
+                    y: rect.top - borderWidth,
+                },
+                {
+                    x: rect.right + borderWidth - cornerSize,
+                    y: rect.bottom + borderWidth - cornerSize,
+                },
+                {
+                    x: rect.left - borderWidth,
+                    y: rect.bottom + borderWidth - cornerSize,
+                },
+            ];
+
+            gsap.killTweensOf(cursor, "rotation");
+            spinTl.current?.pause();
+            gsap.set(cursor, { rotation: 0 });
+
+            const cursorX = gsap.getProperty(cursor, "x") as number;
+            const cursorY = gsap.getProperty(cursor, "y") as number;
+
+            cornersRef.current.forEach((corner, i) => {
+                gsap.to(corner, {
+                    x: positions[i].x - cursorX,
+                    y: positions[i].y - cursorY,
+                    duration: 0.25,
+                    ease: "power2.out",
+                });
+            });
         };
 
-        // Start the animation loop
-        animateTrail();
+        const leaveHandler = () => {
+            spinTl.current?.resume();
+            cornersRef.current.forEach((corner) => {
+                gsap.to(corner, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.3,
+                    ease: "power3.out",
+                });
+            });
+        };
 
-        // Cleanup function to remove event listeners and cancel animation frame
+        window.addEventListener("mouseover", enterHandler);
+        window.addEventListener("mouseout", leaveHandler);
+
         return () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mousedown', handleMouseDown);
-            document.removeEventListener('mouseup', handleMouseUp);
-            cancelAnimationFrame(animationFrameId);
+            window.removeEventListener("mousemove", moveHandler);
+            window.removeEventListener("mouseover", enterHandler);
+            window.removeEventListener("mouseout", leaveHandler);
+            spinTl.current?.kill();
+            document.body.style.cursor = originalCursor;
         };
-    }, []); // Empty dependency array ensures this effect runs only once on mount
+    }, [mounted, spinDuration, moveCursor, constants, hideDefaultCursor, targetSelector]);
 
-    // Dynamically build class strings for the main cursor element
-    const cursorClasses = [
-        "fixed", "w-[25px]", "h-[25px]",
-        "pointer-events-none",
-        "z-[9999]",
-        "transition-transform", "duration-300",
-        "-translate-x-1/2", "-translate-y-1/2",
-        isClicked ? "scale-75" : "scale-100",
-    ].join(' ');
-
-    // Dynamic classes for the center "REC" circle, now much brighter
-    const recCircleClasses = [
-        "absolute", "top-1/2", "left-1/2",
-        "w-2", "h-2", "rounded-full",
-        "-translate-x-1/2", "-translate-y-1/2",
-        "transition-colors", "duration-200", "ease-in-out",
-        isClicked ? "bg-gray-300" : "bg-white", // Brighter center circle (white)
-    ].join(' ');
-
-    // Base classes for corner brackets, now a lighter gray for better contrast
-    const bracketBaseClasses = "absolute w-[10px] h-[10px] border-[3px] border-white rounded-[2px] box-border";
+    if (!mounted) return null;
 
     return (
-        // Add an ID to the wrapper to allow hiding it on coarse pointer devices via CSS
-        <div id="custom-cursor">
-            {/* Render the trail dots */}
-            {trail.map((trailPos, index) => {
-                const opacity = Math.max(0, 1 - index / TRAIL_LENGTH);
-                const scale = Math.max(0, 1 - index / TRAIL_LENGTH);
-
-                return (
-                    <div
-                        key={index}
-                        // Use a lighter grey color for the trail for better visibility
-                        className="fixed w-2 h-2 bg-gray-400 rounded-full pointer-events-none z-[9998]"
-                        style={{
-                            left: `${trailPos.x}px`,
-                            top: `${trailPos.y}px`,
-                            opacity: opacity,
-                            transform: `translate(-50%, -50%) scale(${scale})`,
-                            transition: 'transform 0.1s ease-out, opacity 0.1s ease-out',
-                        }}
-                    ></div>
-                );
-            })}
-
-            {/* Render the main cursor head */}
-            <div
-                className={cursorClasses}
-                style={{ left: `${position.x}px`, top: `${position.y}px` }}
-            >
-                {/* Corner brackets */}
-                <span className={`${bracketBaseClasses} top-0 left-0 border-r-0 border-b-0`}></span>
-                <span className={`${bracketBaseClasses} top-0 right-0 border-l-0 border-b-0`}></span>
-                <span className={`${bracketBaseClasses} bottom-0 left-0 border-r-0 border-t-0`}></span>
-                <span className={`${bracketBaseClasses} bottom-0 right-0 border-l-0 border-t-0`}></span>
-                
-                {/* Center recording-style circle */}
-                <div className={recCircleClasses}></div>
-            </div>
+        <div
+            ref={cursorRef}
+            className="fixed top-0 left-0 pointer-events-none z-[9999]"
+            style={{ width: 100, height: 100 }}
+        >
+            {/* 100px Corners */}
+            <div className="target-cursor-corner absolute w-[100px] h-[100px] border-[3px] border-white border-r-0 border-b-0" />
+            <div className="target-cursor-corner absolute w-[100px] h-[100px] border-[3px] border-white border-l-0 border-b-0" />
+            <div className="target-cursor-corner absolute w-[100px] h-[100px] border-[3px] border-white border-l-0 border-t-0" />
+            <div className="target-cursor-corner absolute w-[100px] h-[100px] border-[3px] border-white border-r-0 border-t-0" />
         </div>
     );
 };
 
-export default CustomCursor;
+export default TargetCursor;

@@ -3,21 +3,21 @@ import AOS from 'aos';
 
 const images = [
   {
-    src: "/SERVICE_ASSESTS/EventCoverage.jpeg",
+    src: "/SERVICE_ASSESTS/EventCoverage.jpg",
     alt: "Event Coverage",
     title: "Event Coverage",
     description:
       "Capturing the energy and defining moments of your event with cinematic video and dynamic photography.",
   },
   {
-    src: "/SERVICE_ASSESTS/SocialMedia.jpeg",
+    src: "/SERVICE_ASSESTS/Social_Media.png",
     alt: "Social Media",
     title: "Social Media",
     description:
       "Crafting scroll-stopping videos that boost engagement and elevate your brand's presence online.",
   },
   {
-    src: "/SERVICE_ASSESTS/Commercial&Advertise.jpeg",
+    src: "/SERVICE_ASSESTS/Commercial&Advertising.jpg",
     alt: "Commercial & Advertising",
     title: "Commercial & Advertising",
     description:
