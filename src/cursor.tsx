@@ -70,7 +70,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
             y: window.innerHeight / 2,
         });
 
-        // Spin
+        // Spin disabled for visibility
         spinTl.current = gsap
             .timeline({ repeat: -1 })
             .to(cursor, {
@@ -159,10 +159,10 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
             style={{ width: 100, height: 100 }}
         >
             {/* 100px Corners */}
-            <div className="target-cursor-corner absolute w-[100px] h-[100px] border-[3px] border-white border-r-0 border-b-0" />
-            <div className="target-cursor-corner absolute w-[100px] h-[100px] border-[3px] border-white border-l-0 border-b-0" />
-            <div className="target-cursor-corner absolute w-[100px] h-[100px] border-[3px] border-white border-l-0 border-t-0" />
-            <div className="target-cursor-corner absolute w-[100px] h-[100px] border-[3px] border-white border-r-0 border-t-0" />
+            <div className="target-cursor-corner absolute w-[10px] h-[10px] border-[3px] border-white border-r-0 border-b-0" />
+            <div className="target-cursor-corner absolute w-[10px] h-[10px] border-[3px] border-white border-l-0 border-b-0" />
+            <div className="target-cursor-corner absolute w-[10px] h-[10px] border-[3px] border-white border-l-0 border-t-0" />
+            <div className="target-cursor-corner absolute w-[10px] h-[10px] border-[3px] border-white border-r-0 border-t-0" />
         </div>
     );
 };

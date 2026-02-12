@@ -3,7 +3,7 @@ import AOS from 'aos';
 
 const images = [
   {
-    src: "/SERVICE_ASSESTS/EventCoverage.jpg",
+    src: "/SERVICE_ASSESTS/EventCoverage.jpeg",
     alt: "Event Coverage",
     title: "Event Coverage",
     description:

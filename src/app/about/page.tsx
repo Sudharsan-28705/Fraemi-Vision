@@ -222,11 +222,11 @@ const TimelineItem: FC<{ item: typeof timelineData[0], index: number }> = ({ ite
           {/* Content Column */}
           <div className="text-center md:text-left">
             <TeamReveal delay={100}>
-              <h1 className="text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 mb-2">Meet Sujith Remigius</h1>
+              <h1 className="text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600 mb-2">Meet Sujith Remigius</h1>
             </TeamReveal>
 <br />
             <TeamReveal delay={300}>
-              <p className="text-xl md:text-2xl text-gray-700 font-medium mb-8">Founder & Creative Director, Fraemi Vision</p>
+              <p className="text-xl md:text-2xl text-gray-600 font-medium mb-8">Founder & Creative Director, Fraemi Vision</p>
             </TeamReveal>
 
             <TeamReveal delay={500}>
