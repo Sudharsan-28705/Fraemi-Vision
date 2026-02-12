@@ -1,8 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
-import CustomCursor from '@/cursor';
-import TargetCursor from '@/cursor';
+import TargetCursor from '@/components/TargetCursor';
 
 export const metadata: Metadata = {
   title: 'Fraemi Vision',

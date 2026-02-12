@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Header from '@/components/header'
-import Cursor from '@/cursor'
-import React from "react";
 import Common_footer from "@/components/sections/common_footer";
 
 const Portfolio = () => {
@@ -29,7 +27,6 @@ const Portfolio = () => {
 
   return (
     <>
-      <Cursor />
       <section id="Portfolio" className="scroll-mt-20">
         <div className="min-h-screen bg-background">
           <Header isScrolled={isScrolled} />

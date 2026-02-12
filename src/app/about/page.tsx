@@ -2,7 +2,7 @@
 
 import Header from '@/components/header';
 import Common_footer from '@/components/sections/common_footer';
-import Cursor from '@/cursor';
+// import Cursor from '@/cursor';
 import React, { useState, useEffect, useRef, FC, ReactNode } from 'react';
 
 
@@ -279,7 +279,7 @@ export default function App() {
 
   return (
     <>
-      <Cursor />
+      {/* <Cursor /> */}
       <Header isScrolled={isScrolled} />
       <Header1 />
       <main>

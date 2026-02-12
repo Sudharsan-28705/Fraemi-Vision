@@ -27,7 +27,7 @@ export default function CountingNumberAnimation() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center cursor-target">
+    <div className="flex justify-center items-center">
       <div className="text-center text-[1.5rem] font-extralight ">
         We have worked with the companies{" "}
         <span className="font-semibold text-gray-700">{count}</span>+

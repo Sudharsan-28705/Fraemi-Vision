@@ -7,39 +7,62 @@ import HeroSection from "@/components/sections/hero-section";
 import CountingNumberAnimation from "@/components/sections/company";
 import ProjectsSection from "@/components/sections/projects-section";
 import ScrollingLogoMarquee from "@/components/sections/scroll";
-import Common_footer from "@/components/sections/common_footer";
 import Foot from "@/components/sections/footer";
-import CustomCursor from "@/cursor";
+import BounceCards from "@/components/sections/BounceCards";
 
 export default function Home() {
-   const [isScrolled, setIsScrolled] = useState(false);
+    const images = [
+        "https://picsum.photos/400/400?grayscale",
+        "https://picsum.photos/500/500?grayscale",
+        "https://picsum.photos/600/600?grayscale",
+        "https://picsum.photos/700/700?grayscale",
+        "https://picsum.photos/300/300?grayscale"
+    ];
 
-      useEffect(() => {
-          const handleScroll = () => {
-              setIsScrolled(window.scrollY > 50);
-          };
+    const transformStyles = [
+        "rotate(5deg) translate(-150px)",
+        "rotate(0deg) translate(-70px)",
+        "rotate(-5deg)",
+        "rotate(5deg) translate(70px)",
+        "rotate(-5deg) translate(150px)"
+    ];
 
-          window.addEventListener("scroll", handleScroll);
-          handleScroll();
+    const [isScrolled, setIsScrolled] = useState(false);
 
-          return () => {
-              window.removeEventListener("scroll", handleScroll);
-          };
-      }, []);
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
 
-      return (
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    return (
         <>
-        {/* <CustomCursor/> */}
-        <Header isScrolled={isScrolled} />
-          <main className="flex-grow">
-              <HeroSection isScrolled={isScrolled} />
-              <CountingNumberAnimation />
-              <ScrollingLogoMarquee />
-              <ProjectsSection />
-              {/* <Feedback /> */}
-              <Foot />
-          </main>
-          
+            <Header isScrolled={isScrolled} />
+            <main className="flex-grow">
+                <HeroSection isScrolled={isScrolled} />
+                <CountingNumberAnimation />
+                <ScrollingLogoMarquee />
+                <ProjectsSection />
+                <BounceCards
+                    className="custom-bounceCards my-20 mx-auto flex flex-col items-center justify-center w-full max-w-4xl"
+                    images={images}
+                    containerWidth={500}
+                    containerHeight={250}
+                    animationDelay={1}
+                    animationStagger={0.2}
+                    easeType="elastic.out(1, 0.5)"
+                    transformStyles={transformStyles} 
+                    enableHover />
+                <Foot />
+            </main>
+
         </>
-      ) 
+    )
 }

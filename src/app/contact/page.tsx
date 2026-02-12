@@ -2,7 +2,6 @@
 
 import Header from "@/components/header";
 import Common_footer from "@/components/sections/common_footer";
-import Cursor from "@/cursor";
 import React, { useState, useEffect } from "react";
 // ✅ 1. Import the useForm hook and ValidationError component from Formspree
 import { useForm, ValidationError } from '@formspree/react';
@@ -47,7 +46,6 @@ export default function ContactUs() {
 
     return (
         <>
-            <Cursor />
             <section id="Contact_Us" className="scroll-mt-20">
                 <div className="flex flex-col min-h-screen bg-background">
                     <Header isScrolled={isScrolled} />

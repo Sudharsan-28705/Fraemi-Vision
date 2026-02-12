@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/sheet";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./logo";
-import CustomCursor from "@/cursor";
 
 
 const navLinks = [
@@ -102,7 +101,7 @@ export default function Header({ isScrolled }: { isScrolled: boolean }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 transition-colors hover:text-accent"
+                className="text-sm font-medium text-gray-400 transition-colors hover:text-gray-300"
               >
                 {link.label}
               </Link>

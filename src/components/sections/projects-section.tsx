@@ -112,7 +112,7 @@ export default function ProjectsSection() {
           {images.map((img, idx) => (
             <div
               key={idx}
-              className="image-card h-[400px] w-[800px]relative rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(192,192,192,0.5)]"
+              className="image-card h-[400px] w-[800px]relative rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(192,192,192,0.5)]"
             >
               <div className="relative w-full h-full overflow-hidden">
                 <img
