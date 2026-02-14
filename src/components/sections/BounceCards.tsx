@@ -15,12 +15,7 @@ interface BounceCardsProps {
 
 export default function BounceCards({
   className = '',
-  images = ["https://picsum.photos/400/400?grayscale",
-  "https://picsum.photos/500/500?grayscale",
-  "https://picsum.photos/600/600?grayscale",
-  "https://picsum.photos/700/700?grayscale",
-  "https://picsum.photos/300/300?grayscale"],
-  
+  images = [],
   containerWidth = 400,
   containerHeight = 400,
   animationDelay = 0.5,
@@ -131,7 +126,7 @@ export default function BounceCards({
 
   return (
     <div
-      className={`relative flex items-center justify-center ${className}`}
+      className={`relative flex items-center justify-center${className}`}
       ref={containerRef}
       style={{
         width: containerWidth,
@@ -141,7 +136,7 @@ export default function BounceCards({
       {images.map((src, idx) => (
         <div
           key={idx}
-          className={`card card-${idx} absolute w-[200px] aspect-square border-8 border-white rounded-[30px] overflow-hidden`}
+          className={`card card-${idx} absolute w-[300px] aspect-square border-8 border-white rounded-[30px] overflow-hidden`}
           style={{
             boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
             transform: transformStyles[idx] || 'none'

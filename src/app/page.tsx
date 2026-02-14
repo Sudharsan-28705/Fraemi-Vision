@@ -12,11 +12,11 @@ import BounceCards from "@/components/sections/BounceCards";
 
 export default function Home() {
     const images = [
-        "https://picsum.photos/400/400?grayscale",
-        "https://picsum.photos/500/500?grayscale",
-        "https://picsum.photos/600/600?grayscale",
-        "https://picsum.photos/700/700?grayscale",
-        "https://picsum.photos/300/300?grayscale"
+        "/SUJITH_REMIGIUS/SUJITH_REMIGIUS.jpg",
+        "/SUJITH_REMIGIUS/SUJITH_REMIGIUS.jpg",
+        "/SUJITH_REMIGIUS/SUJITH_REMIGIUS.jpg",
+        "/SUJITH_REMIGIUS/SUJITH_REMIGIUS.jpg",
+        "/SUJITH_REMIGIUS/SUJITH_REMIGIUS.jpg"
     ];
 
     const transformStyles = [
