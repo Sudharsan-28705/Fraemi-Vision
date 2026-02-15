@@ -1,5 +1,6 @@
 "use client";
 
+const CLOUDINARY_BASE = "https://res.cloudinary.com/dhrsh9c2v";
 
 export default function ScrollingLogoMarquee() {
     return (
@@ -8,77 +9,77 @@ export default function ScrollingLogoMarquee() {
         <div className="marquee-track">
           <ul className="marquee-content">
             <li>
-              <img src="/LOGO_ASSESTS/IAOI_LOGO.png" alt="IAOI Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120452/IAOI_LOGO_cg9axy.png`} alt="IAOI Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/SPECTRUM_LOGO.png" alt="Spectrum Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120469/SPECTRUM_LOGO_walwzc.png`} alt="Spectrum Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/MM_KITCHEN_LOGO.png" alt="MM Kitchen Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120454/MM_KITCHEN_LOGO_mu88ow.png`} alt="MM Kitchen Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/IMPLANTREE_LOGO.png" alt="Implantree Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120454/IMPLANTREE_LOGO_iehm0c.png`} alt="Implantree Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/MAHALASHMI_LOGO.png" alt="Mahalashmi Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120453/MAHALASHMI_LOGO_yyqlpp.png`} alt="Mahalashmi Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/SIP_LOGO.png" alt="SIP Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120458/SIP_LOGO_yecbqw.png`} alt="SIP Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/KUKU_LOGO.png" alt="Kuku Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120454/KUKU_LOGO_jzz20f.png`} alt="Kuku Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/GOAT_LOGO.png" alt="GOAT Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120454/GOAT_LOGO_k3nngx.png`} alt="GOAT Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/VALHALLA_LOGO.png" alt="VALHALLA Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120470/VALHALLA_LOGO_w1cmok.png`} alt="VALHALLA Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/THE_BARBEQUE_LOUNGE_LOGO.png" alt="THE_BARBEQUE_LOUNGE Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120469/THE_BARBEQUE_LOUNGE_LOGO_bkusgb.png`} alt="THE_BARBEQUE_LOUNGE Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/MOHAN'S_KITCHEN_LOGO.png" alt="MOHAN'S_KITCHEN_LOGO Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120454/MOHAN_S_KITCHEN_LOGO_jldrni.png`} alt="MOHAN'S_KITCHEN_LOGO Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/FIND_BHK_LOGO.png" alt="FIND_BHK Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120451/FIND_BHK_LOGO_mnhv04.png`} alt="FIND_BHK Logo" className="image" />
             </li>
 
             <li>
-              <img src="/LOGO_ASSESTS/IAOI_LOGO.png" alt="IAOI Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120452/IAOI_LOGO_cg9axy.png`} alt="IAOI Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/SPECTRUM_LOGO.png" alt="Spectrum Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120469/SPECTRUM_LOGO_walwzc.png`} alt="Spectrum Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/MM_KITCHEN_LOGO.png" alt="MM Kitchen Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120454/MM_KITCHEN_LOGO_mu88ow.png`} alt="MM Kitchen Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/IMPLANTREE_LOGO.png" alt="Implantree Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120454/IMPLANTREE_LOGO_iehm0c.png`} alt="Implantree Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/MAHALASHMI_LOGO.png" alt="Mahalashmi Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120453/MAHALASHMI_LOGO_yyqlpp.png`} alt="Mahalashmi Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/SIP_LOGO.png" alt="SIP Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120458/SIP_LOGO_yecbqw.png`} alt="SIP Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/KUKU_LOGO.png" alt="Kuku Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120454/KUKU_LOGO_jzz20f.png`} alt="Kuku Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/GOAT_LOGO.png" alt="GOAT Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120454/GOAT_LOGO_k3nngx.png`} alt="GOAT Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/VALHALLA_LOGO.png" alt="VALHALLA Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120470/VALHALLA_LOGO_w1cmok.png`} alt="VALHALLA Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/THE_BARBEQUE_LOUNGE_LOGO.png" alt="THE_BARBEQUE_LOUNGE Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120469/THE_BARBEQUE_LOUNGE_LOGO_bkusgb.png`} alt="THE_BARBEQUE_LOUNGE Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/MOHAN'S_KITCHEN_LOGO.png" alt="MOHAN'S_KITCHEN_LOGO Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120454/MOHAN_S_KITCHEN_LOGO_jldrni.png`} alt="MOHAN'S_KITCHEN_LOGO Logo" className="image" />
             </li>
             <li>
-              <img src="/LOGO_ASSESTS/FIND_BHK_LOGO.png" alt="FIND_BHK_LOGO Logo" className="image" />
+              <img src={`${CLOUDINARY_BASE}/image/upload/v1771120451/FIND_BHK_LOGO_mnhv04.png`} alt="FIND_BHK Logo" className="image" />
             </li>
           </ul>
         </div>

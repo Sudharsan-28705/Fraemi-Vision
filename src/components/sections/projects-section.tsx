@@ -1,44 +1,46 @@
 import React, { useEffect, useRef, useState } from "react";
 import AOS from 'aos';
 
+const CLOUDINARY_BASE = "https://res.cloudinary.com/dhrsh9c2v";
+
 const images = [
   {
-    src: "/SERVICE_ASSESTS/EventCoverage.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120588/EventCoverage_bmsgvd.jpg`,
     alt: "Event Coverage",
     title: "Event Coverage",
     description:
       "Capturing the energy and defining moments of your event with cinematic video and dynamic photography.",
   },
   {
-    src: "/SERVICE_ASSESTS/Social_Media.png",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120554/Social_Media_vupltt.png`,
     alt: "Social Media",
     title: "Social Media",
     description:
       "Crafting scroll-stopping videos that boost engagement and elevate your brand's presence online.",
   },
   {
-    src: "/SERVICE_ASSESTS/Commercial&Advertising.jpg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120501/Commercial_Advertising_ptes9f.jpg`,
     alt: "Commercial & Advertising",
     title: "Commercial & Advertising",
     description:
       "Crafting compelling visual campaigns that elevate your brand and drive commercial results.",
   },
   {
-    src: "/SERVICE_ASSESTS/Drone.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120501/Drone_zvlim5.jpg`,
     alt: "Drone Photography",
     title: "Drone Photography",
     description:
       "Elevating your vision with breathtaking aerial photography and dynamic cinematic footage.",
   },
   {
-    src: "/SERVICE_ASSESTS/Podcast.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120503/PODCAST_vdiin3.jpg`,
     alt: "Podcast",
     title: "Podcast",
     description:
       "Producing broadcast-quality, multi-camera video that transforms your podcast into an engaging visual show.",
   },
   {
-    src: "/SERVICE_ASSESTS/PostProduction.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120502/PostProduction_c9u3wt.jpg`,
     alt: "Post Production",
     title: "Post Production",
     description:

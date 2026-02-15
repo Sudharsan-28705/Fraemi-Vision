@@ -50,7 +50,7 @@ export default function Home() {
                 <CountingNumberAnimation />
                 <ScrollingLogoMarquee />
                 <ProjectsSection />
-                <BounceCards
+                {/* <BounceCards
                     className="custom-bounceCards my-20 mx-auto flex flex-col items-center justify-center w-full max-w-4xl"
                     images={images}
                     containerWidth={500}
@@ -59,7 +59,7 @@ export default function Home() {
                     animationStagger={0.2}
                     easeType="elastic.out(1, 0.5)"
                     transformStyles={transformStyles} 
-                    enableHover />
+                    enableHover /> */}
                 <Foot />
             </main>
 

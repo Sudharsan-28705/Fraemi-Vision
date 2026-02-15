@@ -2,11 +2,10 @@
 
 import Header from '@/components/header';
 import Common_footer from '@/components/sections/common_footer';
-// import Cursor from '@/cursor';
 import React, { useState, useEffect, useRef, FC, ReactNode } from 'react';
 
+const CLOUDINARY_BASE = "https://res.cloudinary.com/dhrsh9c2v";
 
-// --- Reusable Animation Component ---
 const RevealOnScroll: FC<{ children: ReactNode; className?: string }> = ({ children, className = '' }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -39,7 +38,6 @@ const RevealOnScroll: FC<{ children: ReactNode; className?: string }> = ({ child
   return <div ref={ref} className={classes}>{children}</div>;
 };
 
-// --- Data for Components ---
 const timelineData = [
   { year: "2023", title: "The Idea", description: "In a small studio, a single idea sparked: to redefine visual storytelling. Fueled by passion and a clear vision, our journey began." },
   { year: "2024", title: "Our First Masterpiece", description: "We delivered our first major project, earning accolades and setting the benchmark for our creative standards. Our client's success became our success." },
@@ -52,7 +50,7 @@ const missionData = [
   {
     id: 1,
     gradient: "bg-gradient-to-l from-gray-800 to-gray-500",
-    src: "/ABOUT_ASSESTS/creative_vision.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120405/Creative_Vision_m4iqja.jpg`,
     alt: "Creative Vision",
     title: "Creative Vision",
     description:
@@ -62,7 +60,7 @@ const missionData = [
     id: 2,
     title: "The Art of the Story",
     gradient: "bg-gradient-to-r from-gray-800 to-gray-500",
-    src: "/ABOUT_ASSESTS/ART_OF_STORY.webp",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120405/ART_OF_STORY_xioyis.webp`,
     description:
       "We believe every client has a story worth telling. Our purpose is to capture its essence through stunning photography, dynamic videography, and seamless post-production, turning fleeting moments into lasting legacies.",
   },
@@ -71,13 +69,11 @@ const missionData = [
     id: 3,
     title: "Capturing Your Narrative",
     gradient: "bg-gradient-to-l from-gray-800 to-gray-500",
-    src: "/ABOUT_ASSESTS/Narrative.jpg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120407/Narrative_wx1o9a.jpg`,
     description:
       "From the first shot to the final cut, our passion is to frame your world. We specialize in capturing life's defining moments through expert videography and photography, polishing each memory to perfection with our meticulous editing process.",
   }
 ];
-
-// --- Section Components ---
 
 const Header1 = () => (
   <header className="relative h-screen w-full flex items-center justify-center text-center text-white overflow-hidden">
@@ -101,7 +97,6 @@ const Mission = () => (
     <div className="container mx-auto px-6 space-y-24">
       {missionData.map((mission, index) => (
         <div key={mission.id} className="flex flex-col md:flex-row items-center gap-8 md:gap-12 ">
-          {/* Logic to alternate image position */}
           <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
             <img src={mission.src} alt={mission.title} className="rounded-lg shadow-xl w-full h-auto" />
           </div>
@@ -208,18 +203,15 @@ const TimelineItem: FC<{ item: typeof timelineData[0], index: number }> = ({ ite
     <section id="founder" className="py-20 md:py-32 font-sans overflow-hidden">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image Column */}
           <TeamReveal>
             <div className="w-full max-w-md mx-auto">
               <img
-                src="/SUJITH_REMIGIUS/SUJITH_REMIGIUS.jpg"
+                src={`${CLOUDINARY_BASE}/image/upload/v1771120600/SUJITH_REMIGIUS_ga9j20.jpg`}
                 alt="Founder of the Company"
                 className="rounded-full shadow-2xl w-full h-auto aspect-square object-cover"
               />
             </div>
           </TeamReveal>
-
-          {/* Content Column */}
           <div className="text-center md:text-left">
             <TeamReveal delay={100}>
               <h1 className="text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600 mb-2">Meet Sujith Remigius</h1>
@@ -260,7 +252,6 @@ const JoinUs = () => (
   </section>
 );
 
-// --- Main App Component ---
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -279,7 +270,6 @@ export default function App() {
 
   return (
     <>
-      {/* <Cursor /> */}
       <Header isScrolled={isScrolled} />
       <Header1 />
       <main>
