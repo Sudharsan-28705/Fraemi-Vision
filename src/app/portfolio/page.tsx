@@ -67,9 +67,8 @@ const Card = ({ image, video }: CardProps) => {
       <img
         src={image}
         alt="Portfolio preview"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-          isHovered ? "opacity-0" : "opacity-100"
-        }`}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered ? "opacity-0" : "opacity-100"
+          }`}
       />
 
       {/* Video */}
@@ -79,9 +78,8 @@ const Card = ({ image, video }: CardProps) => {
         muted
         loop
         playsInline
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-          isHovered ? "opacity-100" : "opacity-0"
-        }`}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered ? "opacity-100" : "opacity-0"
+          }`}
       />
 
       {/* Gradient Overlay */}
@@ -117,65 +115,68 @@ const Portfolio = () => {
 
               {/* Row 1 */}
               <div className="flex flex-row items-center justify-center gap-14">
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/v1771063913/THE_GOAT.jpg`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/v1771063688/THE_GOAT_VIDEO.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771063913/THE_GOAT.jpg`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771063688/THE_GOAT_VIDEO.mp4`}
                 />
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/v1771081927/THUGFLUENCER_b95prj.jpg`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/v1771083149/THUGFLUENCER_hv63r9.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771658810/THUG_LIFE_eprxnr.png`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771083149/THUGFLUENCER_hv63r9.mp4`}
                 />
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/v1771066251/TN_SKILL_gysiom.png`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/v1771066240/TN_SKILL_octutj.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771657431/VELS_2_shiyx5.png`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771239447/VELS_poezhe.mp4`}
                 />
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/v1771065412/TBL_sdgezo.jpg`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/v1771065330/TBL_jytkab.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771065412/TBL_sdgezo.jpg`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771065330/TBL_jytkab.mp4`}
                 />
               </div>
 
               {/* Row 2 */}
               <div className="flex flex-row items-center justify-center gap-14">
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/v1771081988/IMPLANTREE_sacjy2.png`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/v1771083036/IMPLANTREE_gkeoct.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771659154/IMPLATREE_evwvwn.png`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771083036/IMPLANTREE_gkeoct.mp4`}
                 />
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/v1771082106/RAVIMOHAN_STUDIOS_zrkqng.png`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/v1771082939/RAVIMOHAN_STUDIOS_mzue9k.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771248204/RAVIMOHAN_STUDIOS_rqxw2z.png`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771082939/RAVIMOHAN_STUDIOS_mzue9k.mp4`}
                 />
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/v1771081922/MOHAN_S_KITCHEN_wgv5qa.jpg`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/v1771083028/MOHAN_S_KITCHEN_s510az.mov`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771657716/MOHAN_S_KITCHEN_LOGO_2_ejriw4.png`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771083028/MOHAN_S_KITCHEN_s510az.mov`}
                 />
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/v1771081921/DRAVA_r6d2tk.jpg`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/v1771082901/DRAVA_oimshj.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771081921/DRAVA_r6d2tk.jpg`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771082901/DRAVA_oimshj.mp4`}
                 />
               </div>
 
               {/* Row 3 */}
               <div className="flex flex-row items-center justify-center gap-14">
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/v1771081921/MM_KITCHEN_bzxciv.jpg`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/v1771082996/MM_KITCHEN_wylnay.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771081921/MM_KITCHEN_bzxciv.jpg`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771082996/MM_KITCHEN_wylnay.mp4`}
                 />
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/v1771118043/THE_GOAT_2_tbqbtu.jpg`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/v1771118044/THE_GOAT_2_jy1yqw.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771659762/MEIARIVU_LOGO_muvrtq.png`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771238775/MEIARIVU_dmklwj.mp4`}
                 />
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/portfolio/images/image11.jpg`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/portfolio/videos/video11.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771239304/JUSTD_eavb7n.png`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771238207/JYSTD_mnuftw.mp4`}
                 />
-                <Card 
-                  image={`${CLOUDINARY_BASE}/image/upload/portfolio/images/image12.jpg`} 
-                  video={`${CLOUDINARY_BASE}/video/upload/portfolio/videos/video12.mp4`} 
+                <Card
+                  image={`${CLOUDINARY_BASE}/image/upload/v1771066251/TN_SKILL_gysiom.png`}
+                  video={`${CLOUDINARY_BASE}/video/upload/v1771066240/TN_SKILL_octutj.mp4`}
                 />
               </div>
             </div>
-            <a className="text-center pb-[65px]" href="https://linktr.ee/Fraemi_Vision">ALL OTHER PROJECTS</a>
+
+            <div className="text-center pb-[65px] text-gray-400 transition-colors hover:text-gray-300">
+              <a href="https://linktr.ee/Fraemi_Vision">ALL OTHER PROJECTS</a>
+            </div>
           </main>
         </div>
       </section>
