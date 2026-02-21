@@ -6,9 +6,9 @@ export default function CountingNumberAnimation() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const targetNumber = 100;
-    const duration = 2000; // 2 seconds
-    const frameRate = 60;
+    const targetNumber = 50;
+    const duration = 5000;
+    const frameRate = 144;
     const totalFrames = Math.round((duration / 1000) * frameRate);
     const increment = targetNumber / totalFrames;
 

@@ -2,11 +2,10 @@
 
 import Header from '@/components/header';
 import Common_footer from '@/components/sections/common_footer';
-import Cursor from '@/cursor';
 import React, { useState, useEffect, useRef, FC, ReactNode } from 'react';
 
+const CLOUDINARY_BASE = "https://res.cloudinary.com/dhrsh9c2v";
 
-// --- Reusable Animation Component ---
 const RevealOnScroll: FC<{ children: ReactNode; className?: string }> = ({ children, className = '' }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -39,7 +38,6 @@ const RevealOnScroll: FC<{ children: ReactNode; className?: string }> = ({ child
   return <div ref={ref} className={classes}>{children}</div>;
 };
 
-// --- Data for Components ---
 const timelineData = [
   { year: "2023", title: "The Idea", description: "In a small studio, a single idea sparked: to redefine visual storytelling. Fueled by passion and a clear vision, our journey began." },
   { year: "2024", title: "Our First Masterpiece", description: "We delivered our first major project, earning accolades and setting the benchmark for our creative standards. Our client's success became our success." },
@@ -51,8 +49,8 @@ const timelineData = [
 const missionData = [
   {
     id: 1,
-    gradient: "from-pink-400 to-purple-600",
-    src: "/ABOUT_ASSESTS/creative_vision.jpeg",
+    gradient: "bg-gradient-to-l from-gray-800 to-gray-500",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120405/Creative_Vision_m4iqja.jpg`,
     alt: "Creative Vision",
     title: "Creative Vision",
     description:
@@ -61,8 +59,8 @@ const missionData = [
   {
     id: 2,
     title: "The Art of the Story",
-    gradient: "from-blue-400 to-teal-500",
-    src: "/ABOUT_ASSESTS/ART_OF_STORY.webp",
+    gradient: "bg-gradient-to-r from-gray-800 to-gray-500",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120405/ART_OF_STORY_xioyis.webp`,
     description:
       "We believe every client has a story worth telling. Our purpose is to capture its essence through stunning photography, dynamic videography, and seamless post-production, turning fleeting moments into lasting legacies.",
   },
@@ -70,14 +68,12 @@ const missionData = [
   {
     id: 3,
     title: "Capturing Your Narrative",
-    gradient: "from-amber-400 to-orange-600",
-    src: "/ABOUT_US/creative_vision.jpeg",
+    gradient: "bg-gradient-to-l from-gray-800 to-gray-500",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120407/Narrative_wx1o9a.jpg`,
     description:
       "From the first shot to the final cut, our passion is to frame your world. We specialize in capturing life's defining moments through expert videography and photography, polishing each memory to perfection with our meticulous editing process.",
   }
 ];
-
-// --- Section Components ---
 
 const Header1 = () => (
   <header className="relative h-screen w-full flex items-center justify-center text-center text-white overflow-hidden">
@@ -89,7 +85,7 @@ const Header1 = () => (
     <div className="relative z-20 px-4">
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 drop-shadow-lg">Every Frame Tells a Story</h1>
       <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 drop-shadow-md text-muted-foreground ">We are a team of passionate creators, thinkers, and builders dedicated to excellence.</p>
-      <a href="#mission" className="inline-block bg-primary text-primary-foreground font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105">
+      <a href="#mission" className="inline-block bg-gray-600 text-primary-foreground font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105">
         Discover Our Journey
       </a>
     </div>
@@ -100,17 +96,16 @@ const Mission = () => (
   <section id="mission" className="py-20 md:py-32">
     <div className="container mx-auto px-6 space-y-24">
       {missionData.map((mission, index) => (
-        <div key={mission.id} className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          {/* Logic to alternate image position */}
-          <div className={`md:w-1/2 height={200} width={400} ${index % 2 !== 0 ? 'md:order-2' : ''} ` }>
+        <div key={mission.id} className="flex flex-col md:flex-row items-center gap-8 md:gap-12 ">
+          <div className={`md:w-1/2 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
             <img src={mission.src} alt={mission.title} className="rounded-lg shadow-xl w-full h-auto" />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
             <RevealOnScroll>
-              <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r ${mission.gradient}`}>
+              <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text ${mission.gradient} `}>
                 {mission.title}
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
                 {mission.description}
               </p>
             </RevealOnScroll>
@@ -148,7 +143,7 @@ const TimelineItem: FC<{ item: typeof timelineData[0], index: number }> = ({ ite
   return (
     <RevealOnScroll className={`mb-12 flex items-center w-full ${sideClasses}`}>
       <div className="order-1 w-5/12"></div>
-      <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-12 h-12 rounded-full">
+      <div className="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-12 h-12 rounded-full">
         <h3 className="mx-auto font-semibold text-lg text-primary-foreground">{index + 1}</h3>
       </div>
       <div className="order-1 bg-secondary rounded-lg shadow-xl w-5/12 px-6 py-4">
@@ -160,87 +155,79 @@ const TimelineItem: FC<{ item: typeof timelineData[0], index: number }> = ({ ite
 };
 
 
-const Team = () => {
-  const RevealOnScroll = ({ children , delay = 0, threshold = 0.25 }) => {
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef(null);
+  const Team = () => {
+    const TeamReveal: FC<{ children: ReactNode; delay?: number; threshold?: number }> = ({ children, delay = 0, threshold = 0.25 }) => {
+      const [isVisible, setIsVisible] = useState(false);
+      const ref = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          // Check if the element is intersecting
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            // Stop observing after the animation is triggered
-            observer.unobserve(entry.target);
+      useEffect(() => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+              observer.unobserve(entry.target);
+            }
+          },
+          {
+            threshold,
           }
-        },
-        {
-          threshold, // 25% of the element must be visible
-        }
-      );
+        );
 
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
-
-      return () => {
         if (ref.current) {
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          observer.unobserve(ref.current);
+          observer.observe(ref.current);
         }
-      };
-    }, [ref, threshold]);
 
-    // Base transition classes
-    const transitionClasses = `transition-all duration-1000 ease-out`;
-    // Initial state: invisible and slightly moved down
-    const initialStateClasses = `opacity-0 transform translate-y-5`;
-    // Visible state: fully opaque and in original position
-    const visibleStateClasses = `opacity-100 transform translate-y-0`;
-    return (
-      <div
-        ref={ref}
-        className={`${transitionClasses} ${isVisible ? visibleStateClasses : initialStateClasses}`}
-        style={{ transitionDelay: `${delay}ms` }} // Apply custom delay
-      >
-        {children}
-      </div>
-    );
-  };
+        return () => {
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
+        };
+      }, [threshold]);
+
+      const transitionClasses = `transition-all duration-1000 ease-out`;
+      const initialStateClasses = `opacity-0 transform translate-y-5`;
+      const visibleStateClasses = `opacity-100 transform translate-y-0`;
+
+      return (
+        <div
+          ref={ref}
+          className={`${transitionClasses} ${isVisible ? visibleStateClasses : initialStateClasses}`}
+          style={{ transitionDelay: `${delay}ms` }}
+        >
+          {children}
+        </div>
+      );
+    };
 
   return (
     <section id="founder" className="py-20 md:py-32 font-sans overflow-hidden">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image Column */}
-          <RevealOnScroll>
+          <TeamReveal>
             <div className="w-full max-w-md mx-auto">
               <img
-                src="/SUJITH_REMIGIUS/sujith-remigius (1).png"
+                src={`${CLOUDINARY_BASE}/image/upload/v1771120600/SUJITH_REMIGIUS_ga9j20.jpg`}
                 alt="Founder of the Company"
                 className="rounded-full shadow-2xl w-full h-auto aspect-square object-cover"
               />
             </div>
-          </RevealOnScroll>
-
-          {/* Content Column */}
+          </TeamReveal>
           <div className="text-center md:text-left">
-            <RevealOnScroll delay={100}>
-              <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600 mb-2">Meet Sujith Remigius</h1>
-            </RevealOnScroll>
+            <TeamReveal delay={100}>
+              <h1 className="text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600 mb-2">Meet Sujith Remigius</h1>
+            </TeamReveal>
+<br />
+            <TeamReveal delay={300}>
+              <p className="text-xl md:text-2xl text-gray-600 font-medium mb-8">Founder & Creative Director, Fraemi Vision</p>
+            </TeamReveal>
 
-            <RevealOnScroll delay={300}>
-              <p className="text-xl md:text-2xl text-gray-700 font-medium mb-8">Founder & Creative Director, Fraemi Vision</p>
-            </RevealOnScroll>
+            <TeamReveal delay={500}>
+              <p className="text-lg leading-relaxed text-gray-300">Driven by a vision to fuse artistry with technology, Sujith established Fraemi Vision to create captivating visual experiences. Drawing on extensive experience in photography, filmmaking, and post-production, they guide the creative strategy with a core belief: that every frame has the power to evoke emotion. As the driving force behind the company, they mentor the team to ensure every project is a benchmark of quality, innovation, and authentic storytelling.</p>
+            </TeamReveal>
 
-            <RevealOnScroll delay={500}>
-              <p className="text-lg text-gray-600 leading-relaxed">Driven by a vision to fuse artistry with technology, Sujith established Fraemi Vision to create captivating visual experiences. Drawing on extensive experience in photography, filmmaking, and post-production, they guide the creative strategy with a core belief: that every frame has the power to evoke emotion. As the driving force behind the company, they mentor the team to ensure every project is a benchmark of quality, innovation, and authentic storytelling.</p>
-            </RevealOnScroll>
-
-            <RevealOnScroll delay={700}>
-              <blockquote className="text-xl italic text-purple-700 border-l-4 border-purple-300 pl-4 mt-10">“Creativity is not just about what we capture, but how we make people feel.” – Sujith Remigius</blockquote>
-            </RevealOnScroll>
+            <TeamReveal delay={700}>
+              <blockquote className="text-xl italicborder-l-4 pl-4 mt-10 text-transparent bg-clip-text bg-gradient-to-l from-gray-800 to-gray-500">“Creativity is not just about what we capture, but how we make people feel.” – Sujith Remigius</blockquote>
+            </TeamReveal>
           </div>
         </div>
       </div>
@@ -253,27 +240,18 @@ const JoinUs = () => (
   <section id="join-us" className="py-20 md:py-32 bg-background text-foreground">
     <div className="container mx-auto px-6 text-center">
       <RevealOnScroll>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Become a Part of Our Story</h2>
+        <h2 className="text-transparent bg-clip-text bg-gradient-to-l from-gray-800 to-gray-300 text-3xl md:text-4xl font-bold mb-4">Become a Part of Our Story</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">Whether you're a potential client, a future team member, or just a fan, we'd love to connect.</p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="bg-secondary p-8 rounded-lg text-center transform transition-transform hover:-translate-y-2 border border-border">
-            <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Want to work with us?</h3>
-            <p className="mb-6 text-muted-foreground">We're always looking for passionate talent. Check out our open positions.</p>
-            <a href="#" className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3 px-8 rounded-full">View Careers</a>
-          </div>
-          <div className="bg-secondary p-8 rounded-lg text-center transform transition-transform hover:-translate-y-2 border border-border">
-            <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Have a project in mind?</h3>
-            <p className="mb-6 text-muted-foreground">Let's talk about how we can build something amazing together.</p>
-            <a href="/contact" className="inline-block bg-foreground text-background hover:bg-foreground/90 font-bold py-3 px-8 rounded-full">Get In Touch</a>
-          </div>
+        <div className="inline-block p-8 rounded-lg text-center transform transition-transform hover:-translate-y-2 border border-border-opacity-50">
+          <h3 className="text-2xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-gray-300">Have a project in mind?</h3>
+          <p className="mb-6 text-muted-foreground">Let's talk about how we can build something amazing together.</p>
+          <a href="/contact" className="inline-block bg-foreground text-background hover:bg-foreground/90 font-bold py-3 px-8 rounded-full">Get In Touch</a>
         </div>
       </RevealOnScroll>
     </div>
   </section>
 );
 
-// --- Main App Component ---
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -292,7 +270,6 @@ export default function App() {
 
   return (
     <>
-      <Cursor />
       <Header isScrolled={isScrolled} />
       <Header1 />
       <main>

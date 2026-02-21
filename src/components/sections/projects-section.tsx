@@ -1,45 +1,46 @@
 import React, { useEffect, useRef, useState } from "react";
 import AOS from 'aos';
-import 'aos/dist/aos.css';
+
+const CLOUDINARY_BASE = "https://res.cloudinary.com/dhrsh9c2v";
 
 const images = [
   {
-    src: "/SERVICE_ASSESTS/EventCoverage.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120588/EventCoverage_bmsgvd.jpg`,
     alt: "Event Coverage",
     title: "Event Coverage",
     description:
       "Capturing the energy and defining moments of your event with cinematic video and dynamic photography.",
   },
   {
-    src: "/SERVICE_ASSESTS/SocialMedia.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120554/Social_Media_vupltt.png`,
     alt: "Social Media",
     title: "Social Media",
     description:
       "Crafting scroll-stopping videos that boost engagement and elevate your brand's presence online.",
   },
   {
-    src: "/SERVICE_ASSESTS/Commercial&Advertise.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120501/Commercial_Advertising_ptes9f.jpg`,
     alt: "Commercial & Advertising",
     title: "Commercial & Advertising",
     description:
       "Crafting compelling visual campaigns that elevate your brand and drive commercial results.",
   },
   {
-    src: "/SERVICE_ASSESTS/Drone.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120501/Drone_zvlim5.jpg`,
     alt: "Drone Photography",
     title: "Drone Photography",
     description:
       "Elevating your vision with breathtaking aerial photography and dynamic cinematic footage.",
   },
   {
-    src: "/SERVICE_ASSESTS/Podcast.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120503/PODCAST_vdiin3.jpg`,
     alt: "Podcast",
     title: "Podcast",
     description:
       "Producing broadcast-quality, multi-camera video that transforms your podcast into an engaging visual show.",
   },
   {
-    src: "/SERVICE_ASSESTS/PostProduction.jpeg",
+    src: `${CLOUDINARY_BASE}/image/upload/v1771120502/PostProduction_c9u3wt.jpg`,
     alt: "Post Production",
     title: "Post Production",
     description:
@@ -113,7 +114,7 @@ export default function ProjectsSection() {
           {images.map((img, idx) => (
             <div
               key={idx}
-              className="image-card h-[400px] w-[800px]relative rounded-2xl overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(192,192,192,0.5)]"
+              className="image-card h-[400px] w-[800px]relative rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(192,192,192,0.5)]"
             >
               <div className="relative w-full h-full overflow-hidden">
                 <img

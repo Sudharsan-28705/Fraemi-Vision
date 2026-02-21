@@ -19,7 +19,7 @@ const navLinks = [
   { href: "/about" , label: "About" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
-  { href: "/contact", label: "SRT Translation" },
+  { href: "#", label: "SRT Translation" },
 ];
 
 // Main Header Component
@@ -43,13 +43,14 @@ export default function Header({ isScrolled }: { isScrolled: boolean }) {
   };
 
   return (
-    <motion.header
+    <>
+      <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-colors duration-500",
-        isScrolled ? "bg-background/80 backdrop-blur-sm" : "bg-transparent"
+        isScrolled ? "bg-background/40   backdrop-blur-sm" : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,7 +101,7 @@ export default function Header({ isScrolled }: { isScrolled: boolean }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 transition-colors hover:text-accent"
+                className="text-sm font-medium text-gray-400 transition-colors hover:text-gray-300"
               >
                 {link.label}
               </Link>
@@ -133,5 +134,6 @@ export default function Header({ isScrolled }: { isScrolled: boolean }) {
         </div>
       </div>
     </motion.header>
+    </>
   );
 }
