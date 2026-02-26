@@ -180,6 +180,25 @@ export default function ScrollingLogoMarquee() {
           background-color: rgba(255, 255, 255, 0.3);
           transform: scale(0.85);
         }
+
+        /* Responsive styles for tablet */
+        @media (max-width: 768px) {
+          .image {
+            height: 70px !important;
+            width: 180px !important;
+          }
+        }
+
+        /* Responsive styles for mobile */
+        @media (max-width: 480px) {
+          .image {
+            height: 50px !important;
+            width: 120px !important;
+          }
+          .marquee-content li {
+            padding: 0 10px !important;
+          }
+        }
       `}
       </style>
     </>

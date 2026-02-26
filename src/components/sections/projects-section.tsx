@@ -146,6 +146,20 @@ export default function ProjectsSection() {
         @keyframes blinkCaret {
           50% { border-color: #fff; }
         }
+
+        /* Responsive styles for tablet */
+        @media (max-width: 768px) {
+          .grid-cols-\[repeat\(auto-fit\,minmax\(350px\,1fr\)\)\] {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+          }
+        }
+
+        /* Responsive styles for mobile */
+        @media (max-width: 480px) {
+          .grid-cols-\[repeat\(auto-fit\,minmax\(350px\,1fr\)\)\] {
+            grid-template-columns: 1fr !important;
+          }
+        }
       `}</style>
       </div>
     </section>

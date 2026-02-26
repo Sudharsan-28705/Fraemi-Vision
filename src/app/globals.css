@@ -113,3 +113,177 @@ body {
     display: none !important;
   }
 }
+
+/* ===== Mobile Responsive Additions ===== */
+
+@media (max-width: 768px) {
+  /* Hero Section */
+  .font-headline {
+    font-size: 4rem !important;
+  }
+  
+  /* Projects Section */
+  .grid-cols-\[repeat\(auto-fit\,minmax\(350px\,1fr\)\)\] {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  }
+  
+  /* Projects card dimensions override */
+  .image-card.h-\[400px\].w-\[800px\] {
+    height: 300px !important;
+    width: 100% !important;
+  }
+  
+  /* Marquee images */
+  .image {
+    height: 70px !important;
+    width: 180px !important;
+  }
+  
+  /* Portfolio cards row adjustments */
+  .flex.flex-row.items-center.justify-center.gap-14 {
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+  }
+  
+  /* Contact form grid */
+  .grid-cols-1.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* About page - Team section */
+  .grid.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* About page - Mission section */
+  .flex.flex-col.md\:flex-row {
+    flex-direction: column !important;
+  }
+  
+  /* About page - Timeline */
+  .absolute.left-1\/2 {
+    left: 20px !important;
+  }
+  
+  /* Footer adjustments */
+  .flex.flex-col.md\:flex-row.justify-between {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  
+  /* Header navigation gap */
+  .space-x-8 {
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hero Section */
+  .font-headline {
+    font-size: 2.5rem !important;
+  }
+  
+  .text-lg.md\:text-2xl {
+    font-size: 1rem !important;
+  }
+  
+  /* Container padding */
+  .container.mx-auto.px-6 {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  /* Projects Section */
+  .grid-cols-\[repeat\(auto-fit\,minmax\(350px\,1fr\)\)\] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .px-10.mx-auto {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  /* Projects card */
+  .image-card.h-\[400px\].w-\[800px\] {
+    height: 250px !important;
+  }
+  
+  /* Marquee images */
+  .image {
+    height: 50px !important;
+    width: 120px !important;
+  }
+  
+  /* Portfolio section */
+  .flex.flex-row.items-center.justify-center.gap-14 {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  
+  /* Contact page */
+  .text-5xl {
+    font-size: 2.5rem !important;
+  }
+  
+  .gap-16 {
+    gap: 24px !important;
+  }
+  
+  /* About page */
+  .text-4xl.md\:text-6xl {
+    font-size: 2rem !important;
+  }
+  
+  .text-3xl.md\:text-4xl {
+    font-size: 1.75rem !important;
+  }
+  
+  /* Team section image */
+  .rounded-full {
+    border-radius: 1rem !important;
+    max-width: 250px !important;
+  }
+  
+  /* Timeline adjustments */
+  .w-5\/12 {
+    width: 100% !important;
+  }
+  
+  .order-1 {
+    order: 0 !important;
+  }
+  
+  /* Buttons full width on mobile */
+  button, 
+  .inline-block.bg-foreground {
+    width: 100% !important;
+  }
+  
+  /* Text overflow prevention */
+  .overflow-hidden.whitespace-nowrap {
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+  
+  /* Grid gap adjustments */
+  .gap-10 {
+    gap: 20px !important;
+  }
+  
+  /* Section padding */
+  .py-20.md\:py-32 {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  
+  /* Footer links */
+  .flex-wrap {
+    flex-wrap: wrap !important;
+  }
+  
+  /* Images responsive */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
