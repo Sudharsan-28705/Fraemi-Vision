@@ -167,6 +167,7 @@ const Portfolio = () => {
                   image={`${CLOUDINARY_BASE}/image/upload/v1771239304/JUSTD_eavb7n.png`}
                   video={`${CLOUDINARY_BASE}/video/upload/v1771238207/JYSTD_mnuftw.mp4`}
                 />
+                
                 <Card
                   image={`${CLOUDINARY_BASE}/image/upload/v1771066251/TN_SKILL_gysiom.png`}
                   video={`${CLOUDINARY_BASE}/video/upload/v1771066240/TN_SKILL_octutj.mp4`}
