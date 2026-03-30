@@ -53,41 +53,7 @@ const Card = ({ image, video }: CardProps) => {
     }
   };
 
-  return (
-    <div
-      ref={cardRef}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className={`relative h-[350px] w-[250px] rounded-xl overflow-hidden shadow-md cursor-none 
-      transform transition-all duration-700 
-      ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
-      hover:scale-105 hover:shadow-xl hover:shadow-black/40`}
-    >
-      {/* Image */}
-      <img
-        src={image}
-        alt="Portfolio preview"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered ? "opacity-0" : "opacity-100"
-          }`}
-      />
-
-      {/* Video */}
-      <video
-        ref={videoRef}
-        src={video}
-        muted
-        loop
-        playsInline
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered ? "opacity-100" : "opacity-0"
-          }`}
-      />
-
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-    </div>
-  );
-};
-
+  
 const Portfolio = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
