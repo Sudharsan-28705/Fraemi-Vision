@@ -22,7 +22,6 @@ const navLinks = [
   { href: "#", label: "SRT Translation" },
 ];
 
-// Main Header Component
 export default function Header({ isScrolled }: { isScrolled: boolean }) {
   const title = "Fraemi Vision";
 
